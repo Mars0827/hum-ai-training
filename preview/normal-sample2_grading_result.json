@@ -1,0 +1,1723 @@
+{
+  "standard": "PNS/BAFS 290:2025",
+  "product_type": "milled_rice_partial_grading",
+  "basis_note": "Percentages are estimated from segmentation area shares as a proxy for % by weight. The result is partial because some standard factors are not currently detectable.",
+  "inputs": {
+    "normal_image": "d:\\Dev\\Hum-ai\\ai-training\\samples\\normal-sample2.jpg",
+    "ir_image": "d:\\Dev\\Hum-ai\\ai-training\\samples\\ir-sample2.jpg",
+    "normal_model": "D:\\Dev\\Hum-ai\\ai-training\\models\\normal-image-model.onnx",
+    "ir_model": "D:\\Dev\\Hum-ai\\ai-training\\models\\ir-image-model.onnx"
+  },
+  "model_classes": {
+    "normal": {
+      "0": "broken",
+      "1": "chalky",
+      "2": "damaged",
+      "3": "discolored",
+      "4": "foreign",
+      "5": "paddy",
+      "6": "red",
+      "7": "whole"
+    },
+    "ir": {
+      "0": "broken",
+      "1": "chalky",
+      "2": "foreign",
+      "3": "whole"
+    }
+  },
+  "counts": {
+    "broken": 11,
+    "chalky": 11,
+    "damaged": 0,
+    "discolored": 7,
+    "foreign": 3,
+    "paddy": 8,
+    "red": 0,
+    "whole": 11
+  },
+  "area_percentages": {
+    "broken": 19.5745,
+    "chalky": 20.0288,
+    "damaged": 0.0,
+    "discolored": 12.7513,
+    "foreign": 6.0316,
+    "paddy": 19.651,
+    "red": 0.0,
+    "whole": 21.9628
+  },
+  "paddy_proxy": {
+    "paddy_count": 8,
+    "grain_like_count": 48,
+    "paddy_per_1000_detected_objects": 166.6667,
+    "used_for_grade": false,
+    "note": "The standard defines paddy as count per 1,000 g, so this image-based proxy is reported but not graded."
+  },
+  "grade": {
+    "grade": "Off-Grade",
+    "grade_scope": "partial_supported_factors_only",
+    "supported_factors": [
+      "broken",
+      "damaged",
+      "discolored",
+      "chalky",
+      "red",
+      "foreign"
+    ],
+    "unsupported_factors": [
+      "brewers",
+      "immature",
+      "contrasting_types",
+      "paddy"
+    ],
+    "factor_results": {
+      "broken": {
+        "observed_percent": 19.5745,
+        "assigned_grade": "Grade no. 3",
+        "thresholds": {
+          "Premium": 5.0,
+          "Grade no. 1": 10.0,
+          "Grade no. 2": 15.0,
+          "Grade no. 3": 25.0,
+          "Grade no. 4": 35.0,
+          "Grade no. 5": 45.0
+        }
+      },
+      "damaged": {
+        "observed_percent": 0.0,
+        "assigned_grade": "Premium",
+        "thresholds": {
+          "Premium": 0.5,
+          "Grade no. 1": 0.7,
+          "Grade no. 2": 1.0,
+          "Grade no. 3": 1.5,
+          "Grade no. 4": 2.0,
+          "Grade no. 5": 3.0
+        }
+      },
+      "discolored": {
+        "observed_percent": 12.7513,
+        "assigned_grade": "Off-Grade",
+        "thresholds": {
+          "Premium": 0.5,
+          "Grade no. 1": 0.7,
+          "Grade no. 2": 1.0,
+          "Grade no. 3": 3.0,
+          "Grade no. 4": 5.0,
+          "Grade no. 5": 8.0
+        }
+      },
+      "chalky": {
+        "observed_percent": 20.0288,
+        "assigned_grade": "Off-Grade",
+        "thresholds": {
+          "Premium": 4.0,
+          "Grade no. 1": 5.0,
+          "Grade no. 2": 7.0,
+          "Grade no. 3": 9.0,
+          "Grade no. 4": 12.0,
+          "Grade no. 5": 15.0
+        }
+      },
+      "red": {
+        "observed_percent": 0.0,
+        "assigned_grade": "Premium",
+        "thresholds": {
+          "Premium": 1.0,
+          "Grade no. 1": 2.0,
+          "Grade no. 2": 4.0,
+          "Grade no. 3": 5.0,
+          "Grade no. 4": 6.0,
+          "Grade no. 5": 7.0
+        }
+      },
+      "foreign": {
+        "observed_percent": 6.0316,
+        "assigned_grade": "Off-Grade",
+        "thresholds": {
+          "Premium": 0.025,
+          "Grade no. 1": 0.1,
+          "Grade no. 2": 0.15,
+          "Grade no. 3": 0.17,
+          "Grade no. 4": 0.2,
+          "Grade no. 5": 0.25
+        }
+      }
+    },
+    "limiting_factors": [
+      "discolored",
+      "chalky",
+      "foreign"
+    ],
+    "official_grade_ready": false,
+    "note": "This is a partial grade based only on currently detectable factors. Brewers, immature kernels, contrasting types, and standard-compliant paddy counting are not yet included."
+  },
+  "merge_debug": {
+    "normal_count": 52,
+    "ir_count": 56,
+    "normal_only_chalky_ignored": [
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9688,
+        "bbox_xyxy": [
+          135.81,
+          515.48,
+          177.42,
+          551.57
+        ],
+        "bbox_norm_xyxy": [
+          0.212199,
+          0.805441,
+          0.277216,
+          0.861835
+        ],
+        "center_norm_xy": [
+          0.244707,
+          0.833638
+        ],
+        "area_px": 783
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9591,
+        "bbox_xyxy": [
+          297.78,
+          190.99,
+          348.34,
+          207.96
+        ],
+        "bbox_norm_xyxy": [
+          0.465285,
+          0.29842,
+          0.544286,
+          0.324944
+        ],
+        "center_norm_xy": [
+          0.504786,
+          0.311682
+        ],
+        "area_px": 855
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9454,
+        "bbox_xyxy": [
+          162.43,
+          365.56,
+          189.81,
+          397.36
+        ],
+        "bbox_norm_xyxy": [
+          0.25379,
+          0.571189,
+          0.296581,
+          0.62087
+        ],
+        "center_norm_xy": [
+          0.275186,
+          0.59603
+        ],
+        "area_px": 646
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9414,
+        "bbox_xyxy": [
+          531.81,
+          158.09,
+          568.11,
+          203.02
+        ],
+        "bbox_norm_xyxy": [
+          0.830948,
+          0.247011,
+          0.887677,
+          0.317214
+        ],
+        "center_norm_xy": [
+          0.859313,
+          0.282112
+        ],
+        "area_px": 764
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9332,
+        "bbox_xyxy": [
+          124.89,
+          331.91,
+          146.84,
+          378.41
+        ],
+        "bbox_norm_xyxy": [
+          0.19514,
+          0.51861,
+          0.229442,
+          0.591271
+        ],
+        "center_norm_xy": [
+          0.212291,
+          0.554941
+        ],
+        "area_px": 828
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9018,
+        "bbox_xyxy": [
+          474.72,
+          397.37,
+          516.11,
+          424.01
+        ],
+        "bbox_norm_xyxy": [
+          0.741757,
+          0.620883,
+          0.806418,
+          0.662521
+        ],
+        "center_norm_xy": [
+          0.774087,
+          0.641702
+        ],
+        "area_px": 780
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.8692,
+        "bbox_xyxy": [
+          107.91,
+          425.03,
+          139.01,
+          468.93
+        ],
+        "bbox_norm_xyxy": [
+          0.168605,
+          0.66411,
+          0.2172,
+          0.732697
+        ],
+        "center_norm_xy": [
+          0.192902,
+          0.698404
+        ],
+        "area_px": 853
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.8196,
+        "bbox_xyxy": [
+          54.93,
+          347.97,
+          92.18,
+          383.23
+        ],
+        "bbox_norm_xyxy": [
+          0.085823,
+          0.543696,
+          0.144039,
+          0.598804
+        ],
+        "center_norm_xy": [
+          0.114931,
+          0.57125
+        ],
+        "area_px": 750
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.7401,
+        "bbox_xyxy": [
+          50.07,
+          459.61,
+          87.77,
+          476.8
+        ],
+        "bbox_norm_xyxy": [
+          0.078228,
+          0.718134,
+          0.137135,
+          0.744994
+        ],
+        "center_norm_xy": [
+          0.107682,
+          0.731564
+        ],
+        "area_px": 722
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.3793,
+        "bbox_xyxy": [
+          329.08,
+          289.01,
+          359.16,
+          340.56
+        ],
+        "bbox_norm_xyxy": [
+          0.514181,
+          0.451572,
+          0.561183,
+          0.532121
+        ],
+        "center_norm_xy": [
+          0.537682,
+          0.491847
+        ],
+        "area_px": 931
+      }
+    ],
+    "ir_chalky_matches": [
+      {
+        "normal_label_before_override": "whole",
+        "normal_confidence": 0.9292,
+        "ir_label_after_override": "chalky",
+        "ir_confidence": 0.3594,
+        "bbox_iou": 0.8479,
+        "center_distance": 0.0022
+      },
+      {
+        "normal_label_before_override": "discolored",
+        "normal_confidence": 0.8257,
+        "ir_label_after_override": "chalky",
+        "ir_confidence": 0.3145,
+        "bbox_iou": 0.9148,
+        "center_distance": 0.0019
+      }
+    ],
+    "ir_chalky_without_normal_match": [
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.9489,
+        "bbox_xyxy": [
+          134.71,
+          517.26,
+          175.84,
+          552.86
+        ],
+        "bbox_norm_xyxy": [
+          0.210487,
+          0.80822,
+          0.274758,
+          0.863845
+        ],
+        "center_norm_xy": [
+          0.242622,
+          0.836032
+        ],
+        "area_px": 743
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.9229,
+        "bbox_xyxy": [
+          532.37,
+          156.88,
+          569.6,
+          202.14
+        ],
+        "bbox_norm_xyxy": [
+          0.83183,
+          0.245121,
+          0.889994,
+          0.31584
+        ],
+        "center_norm_xy": [
+          0.860912,
+          0.28048
+        ],
+        "area_px": 812
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.8714,
+        "bbox_xyxy": [
+          475.03,
+          397.69,
+          518.11,
+          423.9
+        ],
+        "bbox_norm_xyxy": [
+          0.742231,
+          0.621383,
+          0.809539,
+          0.662346
+        ],
+        "center_norm_xy": [
+          0.775885,
+          0.641865
+        ],
+        "area_px": 838
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.8635,
+        "bbox_xyxy": [
+          52.65,
+          347.95,
+          91.31,
+          384.02
+        ],
+        "bbox_norm_xyxy": [
+          0.082269,
+          0.543668,
+          0.142669,
+          0.600027
+        ],
+        "center_norm_xy": [
+          0.112469,
+          0.571848
+        ],
+        "area_px": 757
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.8422,
+        "bbox_xyxy": [
+          106.21,
+          425.62,
+          137.65,
+          469.96
+        ],
+        "bbox_norm_xyxy": [
+          0.165947,
+          0.665036,
+          0.215079,
+          0.734316
+        ],
+        "center_norm_xy": [
+          0.190513,
+          0.699676
+        ],
+        "area_px": 856
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.7576,
+        "bbox_xyxy": [
+          123.1,
+          332.72,
+          145.36,
+          378.56
+        ],
+        "bbox_norm_xyxy": [
+          0.192351,
+          0.519877,
+          0.227127,
+          0.591503
+        ],
+        "center_norm_xy": [
+          0.209739,
+          0.55569
+        ],
+        "area_px": 835
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.6499,
+        "bbox_xyxy": [
+          48.82,
+          460.88,
+          86.06,
+          478.39
+        ],
+        "bbox_norm_xyxy": [
+          0.076275,
+          0.720121,
+          0.134464,
+          0.747477
+        ],
+        "center_norm_xy": [
+          0.10537,
+          0.733799
+        ],
+        "area_px": 757
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.5778,
+        "bbox_xyxy": [
+          160.42,
+          366.71,
+          188.47,
+          397.63
+        ],
+        "bbox_norm_xyxy": [
+          0.250659,
+          0.57299,
+          0.294492,
+          0.621292
+        ],
+        "center_norm_xy": [
+          0.272575,
+          0.597141
+        ],
+        "area_px": 615
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.4732,
+        "bbox_xyxy": [
+          297.44,
+          190.1,
+          347.67,
+          207.6
+        ],
+        "bbox_norm_xyxy": [
+          0.464751,
+          0.297037,
+          0.543228,
+          0.324376
+        ],
+        "center_norm_xy": [
+          0.503989,
+          0.310707
+        ],
+        "area_px": 873
+      }
+    ]
+  },
+  "final_detections": [
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.3594,
+      "bbox_xyxy": [
+        313.53,
+        91.63,
+        363.92,
+        111.31
+      ],
+      "bbox_norm_xyxy": [
+        0.489888,
+        0.143171,
+        0.568631,
+        0.173919
+      ],
+      "center_norm_xy": [
+        0.52926,
+        0.158545
+      ],
+      "area_px": 908
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9682,
+      "bbox_xyxy": [
+        161.23,
+        91.96,
+        199.42,
+        127.8
+      ],
+      "bbox_norm_xyxy": [
+        0.251928,
+        0.143688,
+        0.311589,
+        0.199686
+      ],
+      "center_norm_xy": [
+        0.281759,
+        0.171687
+      ],
+      "area_px": 810
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9542,
+      "bbox_xyxy": [
+        93.63,
+        90.44,
+        138.88,
+        129.91
+      ],
+      "bbox_norm_xyxy": [
+        0.146301,
+        0.141317,
+        0.217006,
+        0.202984
+      ],
+      "center_norm_xy": [
+        0.181654,
+        0.172151
+      ],
+      "area_px": 1002
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.9424,
+      "bbox_xyxy": [
+        392.71,
+        99.5,
+        425.68,
+        139.62
+      ],
+      "bbox_norm_xyxy": [
+        0.613606,
+        0.155467,
+        0.665122,
+        0.218153
+      ],
+      "center_norm_xy": [
+        0.639364,
+        0.18681
+      ],
+      "area_px": 1121
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.3944,
+      "bbox_xyxy": [
+        499.42,
+        106.73,
+        538.25,
+        134.55
+      ],
+      "bbox_norm_xyxy": [
+        0.780346,
+        0.166765,
+        0.841018,
+        0.210238
+      ],
+      "center_norm_xy": [
+        0.810682,
+        0.188502
+      ],
+      "area_px": 856
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.7776,
+      "bbox_xyxy": [
+        499.82,
+        106.81,
+        539.11,
+        134.75
+      ],
+      "bbox_norm_xyxy": [
+        0.78097,
+        0.166886,
+        0.84236,
+        0.210549
+      ],
+      "center_norm_xy": [
+        0.811665,
+        0.188717
+      ],
+      "area_px": 845
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9712,
+      "bbox_xyxy": [
+        238.17,
+        92.34,
+        252.84,
+        169.17
+      ],
+      "bbox_norm_xyxy": [
+        0.372138,
+        0.144282,
+        0.395064,
+        0.264321
+      ],
+      "center_norm_xy": [
+        0.383601,
+        0.204302
+      ],
+      "area_px": 962
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.8942,
+      "bbox_xyxy": [
+        272.67,
+        119.38,
+        306.0,
+        160.4
+      ],
+      "bbox_norm_xyxy": [
+        0.426047,
+        0.186527,
+        0.47812,
+        0.250623
+      ],
+      "center_norm_xy": [
+        0.452084,
+        0.218575
+      ],
+      "area_px": 1070
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.3979,
+      "bbox_xyxy": [
+        368.82,
+        126.6,
+        411.31,
+        160.73
+      ],
+      "bbox_norm_xyxy": [
+        0.576288,
+        0.197816,
+        0.642673,
+        0.251141
+      ],
+      "center_norm_xy": [
+        0.60948,
+        0.224479
+      ],
+      "area_px": 1074
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9492,
+      "bbox_xyxy": [
+        451.14,
+        122.05,
+        468.5,
+        175.09
+      ],
+      "bbox_norm_xyxy": [
+        0.704911,
+        0.190706,
+        0.732032,
+        0.273575
+      ],
+      "center_norm_xy": [
+        0.718471,
+        0.232141
+      ],
+      "area_px": 889
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.9229,
+      "bbox_xyxy": [
+        532.37,
+        156.88,
+        569.6,
+        202.14
+      ],
+      "bbox_norm_xyxy": [
+        0.83183,
+        0.245121,
+        0.889994,
+        0.31584
+      ],
+      "center_norm_xy": [
+        0.860912,
+        0.28048
+      ],
+      "area_px": 812
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9553,
+      "bbox_xyxy": [
+        34.96,
+        169.09,
+        97.89,
+        192.0
+      ],
+      "bbox_norm_xyxy": [
+        0.05462,
+        0.264209,
+        0.15296,
+        0.299996
+      ],
+      "center_norm_xy": [
+        0.10379,
+        0.282102
+      ],
+      "area_px": 763
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.8343,
+      "bbox_xyxy": [
+        129.06,
+        171.02,
+        155.47,
+        216.31
+      ],
+      "bbox_norm_xyxy": [
+        0.201652,
+        0.267219,
+        0.242922,
+        0.337984
+      ],
+      "center_norm_xy": [
+        0.222287,
+        0.302602
+      ],
+      "area_px": 755
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.8427,
+      "bbox_xyxy": [
+        191.5,
+        168.43,
+        215.04,
+        226.62
+      ],
+      "bbox_norm_xyxy": [
+        0.299214,
+        0.263169,
+        0.336003,
+        0.354088
+      ],
+      "center_norm_xy": [
+        0.317609,
+        0.308628
+      ],
+      "area_px": 1229
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.4732,
+      "bbox_xyxy": [
+        297.44,
+        190.1,
+        347.67,
+        207.6
+      ],
+      "bbox_norm_xyxy": [
+        0.464751,
+        0.297037,
+        0.543228,
+        0.324376
+      ],
+      "center_norm_xy": [
+        0.503989,
+        0.310707
+      ],
+      "area_px": 873
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.8472,
+      "bbox_xyxy": [
+        488.21,
+        206.36,
+        517.04,
+        255.28
+      ],
+      "bbox_norm_xyxy": [
+        0.762824,
+        0.322439,
+        0.807882,
+        0.398875
+      ],
+      "center_norm_xy": [
+        0.785353,
+        0.360657
+      ],
+      "area_px": 880
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.9513,
+      "bbox_xyxy": [
+        66.18,
+        240.09,
+        101.73,
+        266.68
+      ],
+      "bbox_norm_xyxy": [
+        0.103412,
+        0.375145,
+        0.158952,
+        0.416688
+      ],
+      "center_norm_xy": [
+        0.131182,
+        0.395916
+      ],
+      "area_px": 577
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9881,
+      "bbox_xyxy": [
+        129.05,
+        253.94,
+        190.68,
+        279.98
+      ],
+      "bbox_norm_xyxy": [
+        0.201645,
+        0.396779,
+        0.297943,
+        0.437476
+      ],
+      "center_norm_xy": [
+        0.249794,
+        0.417127
+      ],
+      "area_px": 1286
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9634,
+      "bbox_xyxy": [
+        361.88,
+        257.11,
+        423.1,
+        291.41
+      ],
+      "bbox_norm_xyxy": [
+        0.565434,
+        0.401732,
+        0.661089,
+        0.455333
+      ],
+      "center_norm_xy": [
+        0.613262,
+        0.428532
+      ],
+      "area_px": 1339
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.7883,
+      "bbox_xyxy": [
+        279.0,
+        251.16,
+        309.14,
+        302.4
+      ],
+      "bbox_norm_xyxy": [
+        0.435938,
+        0.392444,
+        0.48303,
+        0.472496
+      ],
+      "center_norm_xy": [
+        0.459484,
+        0.43247
+      ],
+      "area_px": 1110
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.941,
+      "bbox_xyxy": [
+        440.83,
+        257.33,
+        486.11,
+        298.16
+      ],
+      "bbox_norm_xyxy": [
+        0.688802,
+        0.402077,
+        0.759552,
+        0.465871
+      ],
+      "center_norm_xy": [
+        0.724177,
+        0.433974
+      ],
+      "area_px": 981
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.2825,
+      "bbox_xyxy": [
+        555.23,
+        274.07,
+        580.7,
+        317.52
+      ],
+      "bbox_norm_xyxy": [
+        0.867552,
+        0.428229,
+        0.907347,
+        0.496125
+      ],
+      "center_norm_xy": [
+        0.88745,
+        0.462177
+      ],
+      "area_px": 815
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.7318,
+      "bbox_xyxy": [
+        555.17,
+        274.16,
+        580.55,
+        317.78
+      ],
+      "bbox_norm_xyxy": [
+        0.867451,
+        0.428372,
+        0.907105,
+        0.496537
+      ],
+      "center_norm_xy": [
+        0.887278,
+        0.462454
+      ],
+      "area_px": 823
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.9631,
+      "bbox_xyxy": [
+        208.23,
+        294.38,
+        232.04,
+        316.62
+      ],
+      "bbox_norm_xyxy": [
+        0.325357,
+        0.459962,
+        0.362569,
+        0.494717
+      ],
+      "center_norm_xy": [
+        0.343963,
+        0.47734
+      ],
+      "area_px": 491
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.4465,
+      "bbox_xyxy": [
+        329.05,
+        289.41,
+        358.77,
+        340.79
+      ],
+      "bbox_norm_xyxy": [
+        0.514135,
+        0.452198,
+        0.560583,
+        0.532478
+      ],
+      "center_norm_xy": [
+        0.537359,
+        0.492338
+      ],
+      "area_px": 933
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.7707,
+      "bbox_xyxy": [
+        492.28,
+        302.07,
+        507.66,
+        353.36
+      ],
+      "bbox_norm_xyxy": [
+        0.769189,
+        0.47199,
+        0.793221,
+        0.552124
+      ],
+      "center_norm_xy": [
+        0.781205,
+        0.512057
+      ],
+      "area_px": 812
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.7576,
+      "bbox_xyxy": [
+        123.1,
+        332.72,
+        145.36,
+        378.56
+      ],
+      "bbox_norm_xyxy": [
+        0.192351,
+        0.519877,
+        0.227127,
+        0.591503
+      ],
+      "center_norm_xy": [
+        0.209739,
+        0.55569
+      ],
+      "area_px": 835
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.9099,
+      "bbox_xyxy": [
+        277.84,
+        340.78,
+        298.93,
+        383.15
+      ],
+      "bbox_norm_xyxy": [
+        0.434123,
+        0.532469,
+        0.467074,
+        0.598672
+      ],
+      "center_norm_xy": [
+        0.450598,
+        0.565571
+      ],
+      "area_px": 747
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.7641,
+      "bbox_xyxy": [
+        382.23,
+        344.87,
+        423.4,
+        381.31
+      ],
+      "bbox_norm_xyxy": [
+        0.59724,
+        0.538864,
+        0.661568,
+        0.5958
+      ],
+      "center_norm_xy": [
+        0.629404,
+        0.567332
+      ],
+      "area_px": 851
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.8635,
+      "bbox_xyxy": [
+        52.65,
+        347.95,
+        91.31,
+        384.02
+      ],
+      "bbox_norm_xyxy": [
+        0.082269,
+        0.543668,
+        0.142669,
+        0.600027
+      ],
+      "center_norm_xy": [
+        0.112469,
+        0.571848
+      ],
+      "area_px": 757
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9278,
+      "bbox_xyxy": [
+        540.62,
+        347.88,
+        564.81,
+        405.44
+      ],
+      "bbox_norm_xyxy": [
+        0.844718,
+        0.543563,
+        0.882513,
+        0.633493
+      ],
+      "center_norm_xy": [
+        0.863615,
+        0.588528
+      ],
+      "area_px": 1068
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.5778,
+      "bbox_xyxy": [
+        160.42,
+        366.71,
+        188.47,
+        397.63
+      ],
+      "bbox_norm_xyxy": [
+        0.250659,
+        0.57299,
+        0.294492,
+        0.621292
+      ],
+      "center_norm_xy": [
+        0.272575,
+        0.597141
+      ],
+      "area_px": 615
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.8714,
+      "bbox_xyxy": [
+        475.03,
+        397.69,
+        518.11,
+        423.9
+      ],
+      "bbox_norm_xyxy": [
+        0.742231,
+        0.621383,
+        0.809539,
+        0.662346
+      ],
+      "center_norm_xy": [
+        0.775885,
+        0.641865
+      ],
+      "area_px": 838
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.8964,
+      "bbox_xyxy": [
+        330.14,
+        403.34,
+        360.0,
+        451.21
+      ],
+      "bbox_norm_xyxy": [
+        0.51585,
+        0.630213,
+        0.562506,
+        0.70502
+      ],
+      "center_norm_xy": [
+        0.539178,
+        0.667616
+      ],
+      "area_px": 851
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.9338,
+      "bbox_xyxy": [
+        260.87,
+        411.13,
+        294.3,
+        443.69
+      ],
+      "bbox_norm_xyxy": [
+        0.40761,
+        0.642398,
+        0.459846,
+        0.693264
+      ],
+      "center_norm_xy": [
+        0.433728,
+        0.667831
+      ],
+      "area_px": 703
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.9231,
+      "bbox_xyxy": [
+        214.28,
+        426.82,
+        254.72,
+        448.24
+      ],
+      "bbox_norm_xyxy": [
+        0.334808,
+        0.6669,
+        0.398002,
+        0.700381
+      ],
+      "center_norm_xy": [
+        0.366405,
+        0.683641
+      ],
+      "area_px": 607
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.8422,
+      "bbox_xyxy": [
+        106.21,
+        425.62,
+        137.65,
+        469.96
+      ],
+      "bbox_norm_xyxy": [
+        0.165947,
+        0.665036,
+        0.215079,
+        0.734316
+      ],
+      "center_norm_xy": [
+        0.190513,
+        0.699676
+      ],
+      "area_px": 856
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.3032,
+      "bbox_xyxy": [
+        382.36,
+        435.0,
+        416.9,
+        479.82
+      ],
+      "bbox_norm_xyxy": [
+        0.597444,
+        0.679686,
+        0.651408,
+        0.749722
+      ],
+      "center_norm_xy": [
+        0.624426,
+        0.714704
+      ],
+      "area_px": 911
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.4642,
+      "bbox_xyxy": [
+        382.16,
+        435.31,
+        416.77,
+        479.89
+      ],
+      "bbox_norm_xyxy": [
+        0.597129,
+        0.680165,
+        0.651204,
+        0.74983
+      ],
+      "center_norm_xy": [
+        0.624167,
+        0.714998
+      ],
+      "area_px": 902
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.6499,
+      "bbox_xyxy": [
+        48.82,
+        460.88,
+        86.06,
+        478.39
+      ],
+      "bbox_norm_xyxy": [
+        0.076275,
+        0.720121,
+        0.134464,
+        0.747477
+      ],
+      "center_norm_xy": [
+        0.10537,
+        0.733799
+      ],
+      "area_px": 757
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.7821,
+      "bbox_xyxy": [
+        223.42,
+        456.23,
+        247.88,
+        503.18
+      ],
+      "bbox_norm_xyxy": [
+        0.349097,
+        0.712853,
+        0.387309,
+        0.786215
+      ],
+      "center_norm_xy": [
+        0.368203,
+        0.749534
+      ],
+      "area_px": 873
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.4415,
+      "bbox_xyxy": [
+        490.37,
+        473.39,
+        509.46,
+        520.03
+      ],
+      "bbox_norm_xyxy": [
+        0.766211,
+        0.739675,
+        0.796028,
+        0.812548
+      ],
+      "center_norm_xy": [
+        0.781119,
+        0.776111
+      ],
+      "area_px": 873
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.6858,
+      "bbox_xyxy": [
+        291.93,
+        493.02,
+        336.41,
+        528.94
+      ],
+      "bbox_norm_xyxy": [
+        0.456137,
+        0.770336,
+        0.52564,
+        0.82647
+      ],
+      "center_norm_xy": [
+        0.490889,
+        0.798403
+      ],
+      "area_px": 818
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.9531,
+      "bbox_xyxy": [
+        437.09,
+        499.65,
+        465.15,
+        539.88
+      ],
+      "bbox_norm_xyxy": [
+        0.682951,
+        0.780696,
+        0.726802,
+        0.843562
+      ],
+      "center_norm_xy": [
+        0.704877,
+        0.812129
+      ],
+      "area_px": 848
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.9293,
+      "bbox_xyxy": [
+        384.86,
+        515.67,
+        413.49,
+        550.74
+      ],
+      "bbox_norm_xyxy": [
+        0.601345,
+        0.80573,
+        0.646073,
+        0.860526
+      ],
+      "center_norm_xy": [
+        0.623709,
+        0.833128
+      ],
+      "area_px": 659
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.9489,
+      "bbox_xyxy": [
+        134.71,
+        517.26,
+        175.84,
+        552.86
+      ],
+      "bbox_norm_xyxy": [
+        0.210487,
+        0.80822,
+        0.274758,
+        0.863845
+      ],
+      "center_norm_xy": [
+        0.242622,
+        0.836032
+      ],
+      "area_px": 743
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.8744,
+      "bbox_xyxy": [
+        513.38,
+        537.53,
+        559.02,
+        571.52
+      ],
+      "bbox_norm_xyxy": [
+        0.802159,
+        0.839889,
+        0.87347,
+        0.892999
+      ],
+      "center_norm_xy": [
+        0.837815,
+        0.866444
+      ],
+      "area_px": 980
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.2572,
+      "bbox_xyxy": [
+        214.03,
+        539.09,
+        256.79,
+        572.7
+      ],
+      "bbox_norm_xyxy": [
+        0.334423,
+        0.842326,
+        0.401236,
+        0.894844
+      ],
+      "center_norm_xy": [
+        0.367829,
+        0.868585
+      ],
+      "area_px": 837
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.7509,
+      "bbox_xyxy": [
+        213.46,
+        539.19,
+        256.59,
+        572.79
+      ],
+      "bbox_norm_xyxy": [
+        0.333524,
+        0.842479,
+        0.400916,
+        0.894978
+      ],
+      "center_norm_xy": [
+        0.36722,
+        0.868728
+      ],
+      "area_px": 843
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.3145,
+      "bbox_xyxy": [
+        316.31,
+        542.29,
+        357.08,
+        578.88
+      ],
+      "bbox_norm_xyxy": [
+        0.494237,
+        0.847335,
+        0.557936,
+        0.904503
+      ],
+      "center_norm_xy": [
+        0.526087,
+        0.875919
+      ],
+      "area_px": 912
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.8823,
+      "bbox_xyxy": [
+        88.59,
+        548.85,
+        128.36,
+        581.83
+      ],
+      "bbox_norm_xyxy": [
+        0.138417,
+        0.857583,
+        0.200559,
+        0.909111
+      ],
+      "center_norm_xy": [
+        0.169488,
+        0.883347
+      ],
+      "area_px": 766
+    }
+  ]
+}

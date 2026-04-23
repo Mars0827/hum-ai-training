@@ -1,0 +1,3709 @@
+{
+  "standard": "PNS/BAFS 290:2025",
+  "product_type": "milled_rice_partial_grading",
+  "basis_note": "Percentages are estimated from segmentation area shares as a proxy for % by weight. The result is partial because some standard factors are not currently detectable.",
+  "inputs": {
+    "normal_image": "D:\\Dev\\Hum-ai\\ai-training\\samples\\normal-sample.jpg",
+    "ir_image": "D:\\Dev\\Hum-ai\\ai-training\\samples\\ir-sample.jpg",
+    "normal_model": "D:\\Dev\\Hum-ai\\ai-training\\models\\normal-image-model.onnx",
+    "ir_model": "D:\\Dev\\Hum-ai\\ai-training\\models\\ir-image-model.onnx"
+  },
+  "model_classes": {
+    "normal": {
+      "0": "broken",
+      "1": "chalky",
+      "2": "damaged",
+      "3": "discolored",
+      "4": "foreign",
+      "5": "paddy",
+      "6": "red",
+      "7": "whole"
+    },
+    "ir": {
+      "0": "broken",
+      "1": "chalky",
+      "2": "foreign",
+      "3": "whole"
+    }
+  },
+  "counts": {
+    "broken": 5,
+    "chalky": 11,
+    "damaged": 0,
+    "discolored": 11,
+    "foreign": 4,
+    "paddy": 6,
+    "red": 0,
+    "whole": 25
+  },
+  "area_percentages": {
+    "broken": 5.7335,
+    "chalky": 16.5781,
+    "damaged": 0.0,
+    "discolored": 16.2245,
+    "foreign": 7.7804,
+    "paddy": 10.613,
+    "red": 0.0,
+    "whole": 43.0704
+  },
+  "physical_features": {
+    "pixel_scale": {
+      "px_per_mm": 54.6539,
+      "mm_per_px": 0.018297,
+      "basis": "23 mm reference coin measured at 1257.04 px diameter"
+    },
+    "included_labels": [
+      "broken",
+      "chalky",
+      "discolored",
+      "whole"
+    ],
+    "excluded_labels": [
+      "foreign",
+      "paddy"
+    ],
+    "grain_count": 52,
+    "by_label": {
+      "broken": {
+        "count": 5,
+        "mean_length_mm": 1.0559,
+        "mean_width_mm": 0.5356,
+        "mean_aspect_ratio": 2.0473,
+        "size_class_counts": {
+          "short": 5
+        }
+      },
+      "chalky": {
+        "count": 11,
+        "mean_length_mm": 1.3011,
+        "mean_width_mm": 0.6268,
+        "mean_aspect_ratio": 2.0951,
+        "size_class_counts": {
+          "short": 11
+        }
+      },
+      "discolored": {
+        "count": 11,
+        "mean_length_mm": 1.3139,
+        "mean_width_mm": 0.6001,
+        "mean_aspect_ratio": 2.1984,
+        "size_class_counts": {
+          "short": 11
+        }
+      },
+      "whole": {
+        "count": 25,
+        "mean_length_mm": 1.4575,
+        "mean_width_mm": 0.6172,
+        "mean_aspect_ratio": 2.4495,
+        "size_class_counts": {
+          "short": 25
+        }
+      }
+    }
+  },
+  "pns_size_classification": {
+    "standard": "PNS/BAFS 290:2025",
+    "basis": "whole milled rice kernels only",
+    "criterion": "80% or more of the whole milled rice kernels must fall in one length class",
+    "reference_labels": [
+      "whole"
+    ],
+    "excluded_labels": [
+      "foreign",
+      "paddy"
+    ],
+    "reference_kernel_count": 25,
+    "assigned_class": "short",
+    "mean_reference_length_mm": 1.4575,
+    "calibration_warning": "Measured whole-kernel lengths fall outside a typical milled-rice range. Verify that PX_PER_MM matches the current image scale before relying on the PNS size class.",
+    "size_class_counts": {
+      "short": 25
+    },
+    "size_class_percentages": {
+      "short": 100.0
+    },
+    "thresholds_mm": {
+      "extra_long": ">= 7.5",
+      "long": "6.4 to 7.4",
+      "medium": "5.5 to 6.3",
+      "short": "< 5.5"
+    }
+  },
+  "paddy_proxy": {
+    "paddy_count": 6,
+    "grain_like_count": 58,
+    "paddy_per_1000_detected_objects": 103.4483,
+    "used_for_grade": false,
+    "note": "The standard defines paddy as count per 1,000 g, so this image-based proxy is reported but not graded."
+  },
+  "grade": {
+    "grade": "Off-Grade",
+    "grade_scope": "partial_supported_factors_only",
+    "supported_factors": [
+      "broken",
+      "damaged",
+      "discolored",
+      "chalky",
+      "red",
+      "foreign"
+    ],
+    "unsupported_factors": [
+      "brewers",
+      "immature",
+      "contrasting_types",
+      "paddy"
+    ],
+    "factor_results": {
+      "broken": {
+        "observed_percent": 5.7335,
+        "assigned_grade": "Grade no. 1",
+        "thresholds": {
+          "Premium": 5.0,
+          "Grade no. 1": 10.0,
+          "Grade no. 2": 15.0,
+          "Grade no. 3": 25.0,
+          "Grade no. 4": 35.0,
+          "Grade no. 5": 45.0
+        }
+      },
+      "damaged": {
+        "observed_percent": 0.0,
+        "assigned_grade": "Premium",
+        "thresholds": {
+          "Premium": 0.5,
+          "Grade no. 1": 0.7,
+          "Grade no. 2": 1.0,
+          "Grade no. 3": 1.5,
+          "Grade no. 4": 2.0,
+          "Grade no. 5": 3.0
+        }
+      },
+      "discolored": {
+        "observed_percent": 16.2245,
+        "assigned_grade": "Off-Grade",
+        "thresholds": {
+          "Premium": 0.5,
+          "Grade no. 1": 0.7,
+          "Grade no. 2": 1.0,
+          "Grade no. 3": 3.0,
+          "Grade no. 4": 5.0,
+          "Grade no. 5": 8.0
+        }
+      },
+      "chalky": {
+        "observed_percent": 16.5781,
+        "assigned_grade": "Off-Grade",
+        "thresholds": {
+          "Premium": 4.0,
+          "Grade no. 1": 5.0,
+          "Grade no. 2": 7.0,
+          "Grade no. 3": 9.0,
+          "Grade no. 4": 12.0,
+          "Grade no. 5": 15.0
+        }
+      },
+      "red": {
+        "observed_percent": 0.0,
+        "assigned_grade": "Premium",
+        "thresholds": {
+          "Premium": 1.0,
+          "Grade no. 1": 2.0,
+          "Grade no. 2": 4.0,
+          "Grade no. 3": 5.0,
+          "Grade no. 4": 6.0,
+          "Grade no. 5": 7.0
+        }
+      },
+      "foreign": {
+        "observed_percent": 7.7804,
+        "assigned_grade": "Off-Grade",
+        "thresholds": {
+          "Premium": 0.025,
+          "Grade no. 1": 0.1,
+          "Grade no. 2": 0.15,
+          "Grade no. 3": 0.17,
+          "Grade no. 4": 0.2,
+          "Grade no. 5": 0.25
+        }
+      }
+    },
+    "limiting_factors": [
+      "discolored",
+      "chalky",
+      "foreign"
+    ],
+    "official_grade_ready": false,
+    "note": "This is a partial grade based only on currently detectable factors. Brewers, immature kernels, contrasting types, and standard-compliant paddy counting are not yet included."
+  },
+  "report_summary": {
+    "grade": "Off-Grade",
+    "limiting_factor": "discolored",
+    "grain_size_class": "short",
+    "total_grains": 62,
+    "parameters": {
+      "broken": 5.7335,
+      "damaged": 0.0,
+      "discolored": 16.2245,
+      "chalky": 16.5781,
+      "red": 0.0,
+      "foreign": 7.7804
+    }
+  },
+  "enriched_grains": [
+    {
+      "grain_id": 1,
+      "class_label": "whole",
+      "length_mm": 1.4930308784395703,
+      "width_mm": 0.526952247183884,
+      "area_px": 824.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9499051570892334,
+      "source": "normal"
+    },
+    {
+      "grain_id": 2,
+      "class_label": "whole",
+      "length_mm": 0.6136558387410725,
+      "width_mm": 0.2721650209232302,
+      "area_px": 123.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.3347514867782593,
+      "source": "normal"
+    },
+    {
+      "grain_id": 3,
+      "class_label": "broken",
+      "length_mm": 0.6136558387410725,
+      "width_mm": 0.2721650209232302,
+      "area_px": 128.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6071814894676208,
+      "source": "normal"
+    },
+    {
+      "grain_id": 4,
+      "class_label": "discolored",
+      "length_mm": 1.3759301929391132,
+      "width_mm": 0.6440527930896457,
+      "area_px": 813.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.8339389562606812,
+      "source": "normal"
+    },
+    {
+      "grain_id": 5,
+      "class_label": "whole",
+      "length_mm": 1.7272325286298758,
+      "width_mm": 0.7904284405731739,
+      "area_px": 1354.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.27888065576553345,
+      "source": "normal"
+    },
+    {
+      "grain_id": 6,
+      "class_label": "whole",
+      "length_mm": 1.6101321223188099,
+      "width_mm": 0.40985198046751353,
+      "area_px": 790.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7776175141334534,
+      "source": "normal"
+    },
+    {
+      "grain_id": 7,
+      "class_label": "whole",
+      "length_mm": 1.597023761622355,
+      "width_mm": 0.7233476753697828,
+      "area_px": 974.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.46301600337028503,
+      "source": "normal"
+    },
+    {
+      "grain_id": 8,
+      "class_label": "whole",
+      "length_mm": 1.548045985524935,
+      "width_mm": 0.6259657177789677,
+      "area_px": 789.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9446314573287964,
+      "source": "normal"
+    },
+    {
+      "grain_id": 9,
+      "class_label": "whole",
+      "length_mm": 1.2588300658174383,
+      "width_mm": 0.7611530598060162,
+      "area_px": 711.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.26333439350128174,
+      "source": "normal"
+    },
+    {
+      "grain_id": 10,
+      "class_label": "whole",
+      "length_mm": 1.5844151499359778,
+      "width_mm": 0.5792747819840867,
+      "area_px": 765.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7353739142417908,
+      "source": "normal"
+    },
+    {
+      "grain_id": 11,
+      "class_label": "whole",
+      "length_mm": 1.3466560685242155,
+      "width_mm": 0.6147781102959659,
+      "area_px": 955.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7447935938835144,
+      "source": "normal"
+    },
+    {
+      "grain_id": 12,
+      "class_label": "paddy",
+      "length_mm": 1.2588303450068292,
+      "width_mm": 0.40985225965690464,
+      "area_px": 578.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6814384460449219,
+      "source": "normal"
+    },
+    {
+      "grain_id": 13,
+      "class_label": "discolored",
+      "length_mm": 0.8489787833234025,
+      "width_mm": 0.6733276154780211,
+      "area_px": 526.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.3778260350227356,
+      "source": "normal"
+    },
+    {
+      "grain_id": 14,
+      "class_label": "whole",
+      "length_mm": 1.61948524611021,
+      "width_mm": 0.5374080294754525,
+      "area_px": 772.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6170660853385925,
+      "source": "normal"
+    },
+    {
+      "grain_id": 15,
+      "class_label": "whole",
+      "length_mm": 1.4930317160077438,
+      "width_mm": 0.6733277550727167,
+      "area_px": 882.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.8378756046295166,
+      "source": "normal"
+    },
+    {
+      "grain_id": 16,
+      "class_label": "chalky",
+      "length_mm": 1.3759313096966777,
+      "width_mm": 0.5269521075891885,
+      "area_px": 811.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.5113029479980469,
+      "source": "ir"
+    },
+    {
+      "grain_id": 17,
+      "class_label": "whole",
+      "length_mm": 1.1417297991010678,
+      "width_mm": 0.556227837343085,
+      "area_px": 675.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7074054479598999,
+      "source": "normal"
+    },
+    {
+      "grain_id": 18,
+      "class_label": "whole",
+      "length_mm": 1.4738017091272306,
+      "width_mm": 0.5135197476043567,
+      "area_px": 975.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.3718215823173523,
+      "source": "normal"
+    },
+    {
+      "grain_id": 19,
+      "class_label": "chalky",
+      "length_mm": 1.595991877632832,
+      "width_mm": 0.6016451809330938,
+      "area_px": 882.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.5132715702056885,
+      "source": "ir"
+    },
+    {
+      "grain_id": 20,
+      "class_label": "chalky",
+      "length_mm": 1.3121386277496752,
+      "width_mm": 0.6070906304118965,
+      "area_px": 655.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.596947431564331,
+      "source": "ir"
+    },
+    {
+      "grain_id": 21,
+      "class_label": "whole",
+      "length_mm": 1.6612868776933691,
+      "width_mm": 0.5969817409387757,
+      "area_px": 750.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9110218286514282,
+      "source": "normal"
+    },
+    {
+      "grain_id": 22,
+      "class_label": "discolored",
+      "length_mm": 1.6756616414678749,
+      "width_mm": 0.5893221799938168,
+      "area_px": 828.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.5222880840301514,
+      "source": "normal"
+    },
+    {
+      "grain_id": 23,
+      "class_label": "whole",
+      "length_mm": 1.4637567540246728,
+      "width_mm": 0.5562279071404328,
+      "area_px": 841.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9717245101928711,
+      "source": "normal"
+    },
+    {
+      "grain_id": 24,
+      "class_label": "whole",
+      "length_mm": 1.6101321223188099,
+      "width_mm": 0.6733280342621077,
+      "area_px": 1002.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9417989253997803,
+      "source": "normal"
+    },
+    {
+      "grain_id": 25,
+      "class_label": "whole",
+      "length_mm": 1.1417304970745454,
+      "width_mm": 1.1124546975233012,
+      "area_px": 992.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7260922789573669,
+      "source": "normal"
+    },
+    {
+      "grain_id": 26,
+      "class_label": "chalky",
+      "length_mm": 0.7904285801678694,
+      "width_mm": 0.6440529326843413,
+      "area_px": 471.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.27806514501571655,
+      "source": "ir"
+    },
+    {
+      "grain_id": 27,
+      "class_label": "whole",
+      "length_mm": 1.6778675168469936,
+      "width_mm": 0.72293943068264,
+      "area_px": 928.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.40634265542030334,
+      "source": "normal"
+    },
+    {
+      "grain_id": 28,
+      "class_label": "whole",
+      "length_mm": 1.3466560685242155,
+      "width_mm": 0.5269521075891885,
+      "area_px": 737.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6489933729171753,
+      "source": "normal"
+    },
+    {
+      "grain_id": 29,
+      "class_label": "broken",
+      "length_mm": 1.2588306241962204,
+      "width_mm": 0.7904280217890872,
+      "area_px": 844.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.559207558631897,
+      "source": "normal"
+    },
+    {
+      "grain_id": 30,
+      "class_label": "foreign",
+      "length_mm": 0.907529126073631,
+      "width_mm": 0.6440530722790367,
+      "area_px": 600.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9166519641876221,
+      "source": "normal"
+    },
+    {
+      "grain_id": 31,
+      "class_label": "discolored",
+      "length_mm": 0.6733283134514989,
+      "width_mm": 0.5562276279510416,
+      "area_px": 441.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.2629321813583374,
+      "source": "normal"
+    },
+    {
+      "grain_id": 32,
+      "class_label": "paddy",
+      "length_mm": 2.15890804582657,
+      "width_mm": 0.5714139952854891,
+      "area_px": 975.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9754694700241089,
+      "source": "normal"
+    },
+    {
+      "grain_id": 33,
+      "class_label": "discolored",
+      "length_mm": 1.3758549513982103,
+      "width_mm": 0.6016452507304416,
+      "area_px": 718.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7795138359069824,
+      "source": "normal"
+    },
+    {
+      "grain_id": 34,
+      "class_label": "broken",
+      "length_mm": 0.7318782374176408,
+      "width_mm": 0.5562279071404328,
+      "area_px": 448.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.38781917095184326,
+      "source": "normal"
+    },
+    {
+      "grain_id": 35,
+      "class_label": "broken",
+      "length_mm": 1.5333582504430008,
+      "width_mm": 0.619888462708095,
+      "area_px": 832.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.5532745122909546,
+      "source": "normal"
+    },
+    {
+      "grain_id": 36,
+      "class_label": "whole",
+      "length_mm": 1.4523666644357722,
+      "width_mm": 0.6199456965332715,
+      "area_px": 810.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6730441451072693,
+      "source": "normal"
+    },
+    {
+      "grain_id": 37,
+      "class_label": "discolored",
+      "length_mm": 1.30040750831954,
+      "width_mm": 0.5216679946797705,
+      "area_px": 627.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.38575422763824463,
+      "source": "normal"
+    },
+    {
+      "grain_id": 38,
+      "class_label": "chalky",
+      "length_mm": 1.5281612795222812,
+      "width_mm": 0.6089228805883692,
+      "area_px": 792.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7629643678665161,
+      "source": "ir"
+    },
+    {
+      "grain_id": 39,
+      "class_label": "whole",
+      "length_mm": 1.6480503690663972,
+      "width_mm": 0.5456081359802641,
+      "area_px": 765.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6342825293540955,
+      "source": "normal"
+    },
+    {
+      "grain_id": 40,
+      "class_label": "whole",
+      "length_mm": 1.3759301929391132,
+      "width_mm": 0.6733277550727167,
+      "area_px": 833.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.4127552807331085,
+      "source": "normal"
+    },
+    {
+      "grain_id": 41,
+      "class_label": "discolored",
+      "length_mm": 1.0246295323846972,
+      "width_mm": 0.5562279071404328,
+      "area_px": 640.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.5780895352363586,
+      "source": "normal"
+    },
+    {
+      "grain_id": 42,
+      "class_label": "chalky",
+      "length_mm": 1.1124546975233012,
+      "width_mm": 0.6733277550727167,
+      "area_px": 698.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.37674784660339355,
+      "source": "ir"
+    },
+    {
+      "grain_id": 43,
+      "class_label": "whole",
+      "length_mm": 1.6144422481386849,
+      "width_mm": 0.650582963150238,
+      "area_px": 983.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.32297998666763306,
+      "source": "normal"
+    },
+    {
+      "grain_id": 44,
+      "class_label": "foreign",
+      "length_mm": 1.3662420418783872,
+      "width_mm": 0.9729298691160492,
+      "area_px": 1234.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6338468194007874,
+      "source": "normal"
+    },
+    {
+      "grain_id": 45,
+      "class_label": "discolored",
+      "length_mm": 1.5312267790366114,
+      "width_mm": 0.6953515403926672,
+      "area_px": 873.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.2730652689933777,
+      "source": "normal"
+    },
+    {
+      "grain_id": 46,
+      "class_label": "foreign",
+      "length_mm": 0.7904287197625649,
+      "width_mm": 0.7904284405731739,
+      "area_px": 726.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9202409982681274,
+      "source": "normal"
+    },
+    {
+      "grain_id": 47,
+      "class_label": "paddy",
+      "length_mm": 1.7608650786293099,
+      "width_mm": 0.46861691516348,
+      "area_px": 688.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9439330101013184,
+      "source": "normal"
+    },
+    {
+      "grain_id": 48,
+      "class_label": "broken",
+      "length_mm": 1.141729380316981,
+      "width_mm": 0.4391269424505845,
+      "area_px": 521.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.4500392973423004,
+      "source": "normal"
+    },
+    {
+      "grain_id": 49,
+      "class_label": "chalky",
+      "length_mm": 1.0793697775145192,
+      "width_mm": 0.6085795474346581,
+      "area_px": 578.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.39290493726730347,
+      "source": "ir"
+    },
+    {
+      "grain_id": 50,
+      "class_label": "paddy",
+      "length_mm": 1.9614338996307903,
+      "width_mm": 0.6733277550727167,
+      "area_px": 1035.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9112669825553894,
+      "source": "normal"
+    },
+    {
+      "grain_id": 51,
+      "class_label": "paddy",
+      "length_mm": 1.4930314368183526,
+      "width_mm": 0.6733288718302811,
+      "area_px": 832.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7758220434188843,
+      "source": "normal"
+    },
+    {
+      "grain_id": 52,
+      "class_label": "foreign",
+      "length_mm": 1.3466566269029978,
+      "width_mm": 1.0246295323846972,
+      "area_px": 1203.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.9467257261276245,
+      "source": "normal"
+    },
+    {
+      "grain_id": 53,
+      "class_label": "whole",
+      "length_mm": 1.3173808273517533,
+      "width_mm": 0.5562267903828684,
+      "area_px": 812.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7206768989562988,
+      "source": "normal"
+    },
+    {
+      "grain_id": 54,
+      "class_label": "paddy",
+      "length_mm": 1.3759307513178953,
+      "width_mm": 0.9075284281001532,
+      "area_px": 1025.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.3181701898574829,
+      "source": "normal"
+    },
+    {
+      "grain_id": 55,
+      "class_label": "chalky",
+      "length_mm": 1.4930317160077438,
+      "width_mm": 0.6733277550727167,
+      "area_px": 894.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.26872989535331726,
+      "source": "ir"
+    },
+    {
+      "grain_id": 56,
+      "class_label": "chalky",
+      "length_mm": 0.878253884901169,
+      "width_mm": 0.6733277550727167,
+      "area_px": 527.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.8834573030471802,
+      "source": "ir"
+    },
+    {
+      "grain_id": 57,
+      "class_label": "chalky",
+      "length_mm": 1.5808568811463477,
+      "width_mm": 0.6733277550727167,
+      "area_px": 893.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.340664267539978,
+      "source": "ir"
+    },
+    {
+      "grain_id": 58,
+      "class_label": "whole",
+      "length_mm": 1.620200668924916,
+      "width_mm": 0.6098966233871947,
+      "area_px": 789.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.32488560676574707,
+      "source": "normal"
+    },
+    {
+      "grain_id": 59,
+      "class_label": "discolored",
+      "length_mm": 1.620200668924916,
+      "width_mm": 0.6098966233871947,
+      "area_px": 789.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.6967338919639587,
+      "source": "normal"
+    },
+    {
+      "grain_id": 60,
+      "class_label": "discolored",
+      "length_mm": 1.5339633934482202,
+      "width_mm": 0.5976122901785857,
+      "area_px": 755.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7772973775863647,
+      "source": "normal"
+    },
+    {
+      "grain_id": 61,
+      "class_label": "discolored",
+      "length_mm": 1.4930319951971347,
+      "width_mm": 0.556227837343085,
+      "area_px": 837.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.655968189239502,
+      "source": "normal"
+    },
+    {
+      "grain_id": 62,
+      "class_label": "chalky",
+      "length_mm": 1.5649697484402274,
+      "width_mm": 0.6044579442511264,
+      "area_px": 817.0,
+      "grain_size_class": "short",
+      "ir_mean_intensity": 0.0,
+      "confidence": 0.7155354022979736,
+      "source": "ir"
+    }
+  ],
+  "merge_debug": {
+    "normal_count": 66,
+    "ir_count": 74,
+    "normal_only_chalky_ignored": [
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9345,
+        "bbox_xyxy": [
+          386.2,
+          928.54,
+          463.45,
+          963.16
+        ],
+        "bbox_norm_xyxy": [
+          0.377151,
+          0.906776,
+          0.452587,
+          0.940591
+        ],
+        "center_norm_xy": [
+          0.414869,
+          0.923684
+        ],
+        "area_px": 838,
+        "physical_features": {
+          "length_px": 81.6,
+          "width_px": 36.8,
+          "length_mm": 1.493,
+          "width_mm": 0.6733,
+          "aspect_ratio": 2.2174,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.9091,
+        "bbox_xyxy": [
+          464.05,
+          798.72,
+          511.96,
+          833.94
+        ],
+        "bbox_norm_xyxy": [
+          0.453175,
+          0.780002,
+          0.499964,
+          0.814399
+        ],
+        "center_norm_xy": [
+          0.47657,
+          0.797201
+        ],
+        "area_px": 536,
+        "physical_features": {
+          "length_px": 60.72,
+          "width_px": 31.55,
+          "length_mm": 1.1109,
+          "width_mm": 0.5772,
+          "aspect_ratio": 1.9247,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.8943,
+        "bbox_xyxy": [
+          97.77,
+          319.64,
+          141.63,
+          393.66
+        ],
+        "bbox_norm_xyxy": [
+          0.095477,
+          0.31215,
+          0.138306,
+          0.384435
+        ],
+        "center_norm_xy": [
+          0.116892,
+          0.348293
+        ],
+        "area_px": 851,
+        "physical_features": {
+          "length_px": 91.35,
+          "width_px": 31.67,
+          "length_mm": 1.6714,
+          "width_mm": 0.5794,
+          "aspect_ratio": 2.8848,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.8141,
+        "bbox_xyxy": [
+          304.34,
+          798.94,
+          391.74,
+          833.91
+        ],
+        "bbox_norm_xyxy": [
+          0.297211,
+          0.780215,
+          0.382555,
+          0.814362
+        ],
+        "center_norm_xy": [
+          0.339883,
+          0.797289
+        ],
+        "area_px": 693,
+        "physical_features": {
+          "length_px": 62.57,
+          "width_px": 39.05,
+          "length_mm": 1.1448,
+          "width_mm": 0.7145,
+          "aspect_ratio": 1.6023,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.742,
+        "bbox_xyxy": [
+          352.37,
+          270.32,
+          379.08,
+          348.78
+        ],
+        "bbox_norm_xyxy": [
+          0.344112,
+          0.263982,
+          0.370198,
+          0.340605
+        ],
+        "center_norm_xy": [
+          0.357155,
+          0.302294
+        ],
+        "area_px": 664,
+        "physical_features": {
+          "length_px": 75.2,
+          "width_px": 24.0,
+          "length_mm": 1.3759,
+          "width_mm": 0.4391,
+          "aspect_ratio": 3.1333,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.7349,
+        "bbox_xyxy": [
+          81.8,
+          535.62,
+          126.54,
+          593.14
+        ],
+        "bbox_norm_xyxy": [
+          0.079887,
+          0.523064,
+          0.123576,
+          0.579239
+        ],
+        "center_norm_xy": [
+          0.101731,
+          0.551151
+        ],
+        "area_px": 723,
+        "physical_features": {
+          "length_px": 79.55,
+          "width_px": 33.41,
+          "length_mm": 1.4555,
+          "width_mm": 0.6113,
+          "aspect_ratio": 2.3812,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.6187,
+        "bbox_xyxy": [
+          591.11,
+          670.81,
+          621.32,
+          736.76
+        ],
+        "bbox_norm_xyxy": [
+          0.577259,
+          0.655089,
+          0.606761,
+          0.719497
+        ],
+        "center_norm_xy": [
+          0.59201,
+          0.687293
+        ],
+        "area_px": 656,
+        "physical_features": {
+          "length_px": 67.2,
+          "width_px": 30.4,
+          "length_mm": 1.2296,
+          "width_mm": 0.5562,
+          "aspect_ratio": 2.2105,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.4994,
+        "bbox_xyxy": [
+          96.84,
+          221.96,
+          140.36,
+          251.05
+        ],
+        "bbox_norm_xyxy": [
+          0.09457,
+          0.21676,
+          0.137073,
+          0.245167
+        ],
+        "center_norm_xy": [
+          0.115822,
+          0.230963
+        ],
+        "area_px": 452,
+        "physical_features": {
+          "length_px": 43.2,
+          "width_px": 28.8,
+          "length_mm": 0.7904,
+          "width_mm": 0.527,
+          "aspect_ratio": 1.5,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.4813,
+        "bbox_xyxy": [
+          417.17,
+          532.28,
+          458.73,
+          600.21
+        ],
+        "bbox_norm_xyxy": [
+          0.407395,
+          0.519808,
+          0.447979,
+          0.586145
+        ],
+        "center_norm_xy": [
+          0.427687,
+          0.552976
+        ],
+        "area_px": 837,
+        "physical_features": {
+          "length_px": 76.49,
+          "width_px": 38.69,
+          "length_mm": 1.3995,
+          "width_mm": 0.7079,
+          "aspect_ratio": 1.9769,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.4448,
+        "bbox_xyxy": [
+          356.99,
+          349.57,
+          409.11,
+          398.85
+        ],
+        "bbox_norm_xyxy": [
+          0.348618,
+          0.34138,
+          0.399524,
+          0.3895
+        ],
+        "center_norm_xy": [
+          0.374071,
+          0.36544
+        ],
+        "area_px": 669,
+        "physical_features": {
+          "length_px": 71.68,
+          "width_px": 33.92,
+          "length_mm": 1.3115,
+          "width_mm": 0.6206,
+          "aspect_ratio": 2.1132,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.4121,
+        "bbox_xyxy": [
+          332.81,
+          429.57,
+          367.45,
+          471.58
+        ],
+        "bbox_norm_xyxy": [
+          0.32501,
+          0.419502,
+          0.358836,
+          0.460525
+        ],
+        "center_norm_xy": [
+          0.341923,
+          0.440014
+        ],
+        "area_px": 456,
+        "physical_features": {
+          "length_px": 43.2,
+          "width_px": 36.8,
+          "length_mm": 0.7904,
+          "width_mm": 0.6733,
+          "aspect_ratio": 1.1739,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.4082,
+        "bbox_xyxy": [
+          281.05,
+          759.87,
+          342.5,
+          807.79
+        ],
+        "bbox_norm_xyxy": [
+          0.274465,
+          0.742058,
+          0.334473,
+          0.788859
+        ],
+        "center_norm_xy": [
+          0.304469,
+          0.765459
+        ],
+        "area_px": 779,
+        "physical_features": {
+          "length_px": 82.85,
+          "width_px": 31.8,
+          "length_mm": 1.5159,
+          "width_mm": 0.5818,
+          "aspect_ratio": 2.6058,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.3136,
+        "bbox_xyxy": [
+          328.57,
+          776.27,
+          395.99,
+          809.44
+        ],
+        "bbox_norm_xyxy": [
+          0.320865,
+          0.758072,
+          0.386704,
+          0.790473
+        ],
+        "center_norm_xy": [
+          0.353785,
+          0.774272
+        ],
+        "area_px": 584,
+        "physical_features": {
+          "length_px": 54.4,
+          "width_px": 36.8,
+          "length_mm": 0.9954,
+          "width_mm": 0.6733,
+          "aspect_ratio": 1.4783,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "normal",
+        "label": "chalky",
+        "confidence": 0.2825,
+        "bbox_xyxy": [
+          431.98,
+          573.27,
+          498.25,
+          651.07
+        ],
+        "bbox_norm_xyxy": [
+          0.421855,
+          0.559831,
+          0.486573,
+          0.635811
+        ],
+        "center_norm_xy": [
+          0.454214,
+          0.597821
+        ],
+        "area_px": 1386,
+        "physical_features": {
+          "length_px": 65.6,
+          "width_px": 60.8,
+          "length_mm": 1.2003,
+          "width_mm": 1.1125,
+          "aspect_ratio": 1.0789,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      }
+    ],
+    "ir_chalky_matches": [
+      {
+        "normal_label_before_override": "discolored",
+        "normal_confidence": 0.6908,
+        "ir_label_after_override": "chalky",
+        "ir_confidence": 0.3767,
+        "bbox_iou": 0.9149,
+        "center_distance": 0.0018
+      }
+    ],
+    "ir_chalky_without_normal_match": [
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.8835,
+        "bbox_xyxy": [
+          463.62,
+          800.39,
+          512.3,
+          837.02
+        ],
+        "bbox_norm_xyxy": [
+          0.452752,
+          0.781632,
+          0.500297,
+          0.8174
+        ],
+        "center_norm_xy": [
+          0.476524,
+          0.799516
+        ],
+        "area_px": 527,
+        "physical_features": {
+          "length_px": 48.0,
+          "width_px": 36.8,
+          "length_mm": 0.8783,
+          "width_mm": 0.6733,
+          "aspect_ratio": 1.3043,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.763,
+        "bbox_xyxy": [
+          76.17,
+          534.47,
+          124.46,
+          593.7
+        ],
+        "bbox_norm_xyxy": [
+          0.074388,
+          0.521939,
+          0.121545,
+          0.579787
+        ],
+        "center_norm_xy": [
+          0.097967,
+          0.550863
+        ],
+        "area_px": 792,
+        "physical_features": {
+          "length_px": 83.52,
+          "width_px": 33.28,
+          "length_mm": 1.5282,
+          "width_mm": 0.6089,
+          "aspect_ratio": 2.5096,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.7155,
+        "bbox_xyxy": [
+          384.24,
+          930.91,
+          463.26,
+          966.92
+        ],
+        "bbox_norm_xyxy": [
+          0.375235,
+          0.909088,
+          0.452401,
+          0.944255
+        ],
+        "center_norm_xy": [
+          0.413818,
+          0.926671
+        ],
+        "area_px": 817,
+        "physical_features": {
+          "length_px": 85.53,
+          "width_px": 33.04,
+          "length_mm": 1.565,
+          "width_mm": 0.6045,
+          "aspect_ratio": 2.589,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.5969,
+        "bbox_xyxy": [
+          355.28,
+          350.27,
+          408.25,
+          397.09
+        ],
+        "bbox_norm_xyxy": [
+          0.346957,
+          0.34206,
+          0.398677,
+          0.387779
+        ],
+        "center_norm_xy": [
+          0.372817,
+          0.364919
+        ],
+        "area_px": 655,
+        "physical_features": {
+          "length_px": 71.71,
+          "width_px": 33.18,
+          "length_mm": 1.3121,
+          "width_mm": 0.6071,
+          "aspect_ratio": 2.1614,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.5133,
+        "bbox_xyxy": [
+          94.96,
+          318.06,
+          139.04,
+          391.86
+        ],
+        "bbox_norm_xyxy": [
+          0.09273,
+          0.310608,
+          0.135777,
+          0.382678
+        ],
+        "center_norm_xy": [
+          0.114254,
+          0.346643
+        ],
+        "area_px": 882,
+        "physical_features": {
+          "length_px": 87.23,
+          "width_px": 32.88,
+          "length_mm": 1.596,
+          "width_mm": 0.6016,
+          "aspect_ratio": 2.6527,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.5113,
+        "bbox_xyxy": [
+          349.23,
+          269.23,
+          378.16,
+          345.15
+        ],
+        "bbox_norm_xyxy": [
+          0.341041,
+          0.262924,
+          0.369297,
+          0.337063
+        ],
+        "center_norm_xy": [
+          0.355169,
+          0.299993
+        ],
+        "area_px": 811,
+        "physical_features": {
+          "length_px": 75.2,
+          "width_px": 28.8,
+          "length_mm": 1.3759,
+          "width_mm": 0.527,
+          "aspect_ratio": 2.6111,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.3929,
+        "bbox_xyxy": [
+          680.22,
+          695.19,
+          737.89,
+          731.64
+        ],
+        "bbox_norm_xyxy": [
+          0.664282,
+          0.678892,
+          0.720595,
+          0.71449
+        ],
+        "center_norm_xy": [
+          0.692439,
+          0.696691
+        ],
+        "area_px": 578,
+        "physical_features": {
+          "length_px": 58.99,
+          "width_px": 33.26,
+          "length_mm": 1.0794,
+          "width_mm": 0.6086,
+          "aspect_ratio": 1.7736,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.3407,
+        "bbox_xyxy": [
+          303.21,
+          803.83,
+          390.53,
+          836.93
+        ],
+        "bbox_norm_xyxy": [
+          0.296104,
+          0.784988,
+          0.381372,
+          0.817311
+        ],
+        "center_norm_xy": [
+          0.338738,
+          0.80115
+        ],
+        "area_px": 893,
+        "physical_features": {
+          "length_px": 86.4,
+          "width_px": 36.8,
+          "length_mm": 1.5809,
+          "width_mm": 0.6733,
+          "aspect_ratio": 2.3478,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.2781,
+        "bbox_xyxy": [
+          329.66,
+          430.24,
+          365.6,
+          471.13
+        ],
+        "bbox_norm_xyxy": [
+          0.321936,
+          0.420156,
+          0.357031,
+          0.460084
+        ],
+        "center_norm_xy": [
+          0.339484,
+          0.44012
+        ],
+        "area_px": 471,
+        "physical_features": {
+          "length_px": 43.2,
+          "width_px": 35.2,
+          "length_mm": 0.7904,
+          "width_mm": 0.6441,
+          "aspect_ratio": 1.2273,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      },
+      {
+        "source": "ir",
+        "label": "chalky",
+        "confidence": 0.2687,
+        "bbox_xyxy": [
+          324.15,
+          776.8,
+          398.44,
+          808.78
+        ],
+        "bbox_norm_xyxy": [
+          0.316549,
+          0.758594,
+          0.389097,
+          0.789819
+        ],
+        "center_norm_xy": [
+          0.352823,
+          0.774207
+        ],
+        "area_px": 894,
+        "physical_features": {
+          "length_px": 81.6,
+          "width_px": 36.8,
+          "length_mm": 1.493,
+          "width_mm": 0.6733,
+          "aspect_ratio": 2.2174,
+          "size_class": "short",
+          "included_in_physical_feature_summary": true,
+          "included_in_pns_size_classification": false
+        }
+      }
+    ]
+  },
+  "final_detections": [
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9499,
+      "bbox_xyxy": [
+        609.11,
+        61.51,
+        693.02,
+        90.6
+      ],
+      "bbox_norm_xyxy": [
+        0.594829,
+        0.060065,
+        0.676775,
+        0.088477
+      ],
+      "center_norm_xy": [
+        0.635802,
+        0.074271
+      ],
+      "area_px": 824,
+      "physical_features": {
+        "length_px": 81.6,
+        "width_px": 28.8,
+        "length_mm": 1.493,
+        "width_mm": 0.527,
+        "aspect_ratio": 2.8333,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.3348,
+      "bbox_xyxy": [
+        743.95,
+        76.04,
+        758.84,
+        110.3
+      ],
+      "bbox_norm_xyxy": [
+        0.726517,
+        0.074261,
+        0.741054,
+        0.107717
+      ],
+      "center_norm_xy": [
+        0.733785,
+        0.090989
+      ],
+      "area_px": 123,
+      "physical_features": {
+        "length_px": 33.54,
+        "width_px": 14.87,
+        "length_mm": 0.6137,
+        "width_mm": 0.2722,
+        "aspect_ratio": 2.2547,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.6072,
+      "bbox_xyxy": [
+        744.69,
+        76.45,
+        758.78,
+        110.83
+      ],
+      "bbox_norm_xyxy": [
+        0.727241,
+        0.074657,
+        0.740998,
+        0.108235
+      ],
+      "center_norm_xy": [
+        0.73412,
+        0.091446
+      ],
+      "area_px": 128,
+      "physical_features": {
+        "length_px": 33.54,
+        "width_px": 14.87,
+        "length_mm": 0.6137,
+        "width_mm": 0.2722,
+        "aspect_ratio": 2.2547,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.8339,
+      "bbox_xyxy": [
+        743.04,
+        146.81,
+        821.57,
+        180.19
+      ],
+      "bbox_norm_xyxy": [
+        0.725627,
+        0.143365,
+        0.802315,
+        0.175967
+      ],
+      "center_norm_xy": [
+        0.763971,
+        0.159666
+      ],
+      "area_px": 813,
+      "physical_features": {
+        "length_px": 75.2,
+        "width_px": 35.2,
+        "length_mm": 1.3759,
+        "width_mm": 0.6441,
+        "aspect_ratio": 2.1364,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.2789,
+      "bbox_xyxy": [
+        410.65,
+        169.33,
+        503.87,
+        209.81
+      ],
+      "bbox_norm_xyxy": [
+        0.401022,
+        0.165363,
+        0.492064,
+        0.204894
+      ],
+      "center_norm_xy": [
+        0.446543,
+        0.185129
+      ],
+      "area_px": 1354,
+      "physical_features": {
+        "length_px": 94.4,
+        "width_px": 43.2,
+        "length_mm": 1.7272,
+        "width_mm": 0.7904,
+        "aspect_ratio": 2.1852,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.7776,
+      "bbox_xyxy": [
+        173.26,
+        156.47,
+        199.41,
+        246.16
+      ],
+      "bbox_norm_xyxy": [
+        0.1692,
+        0.152799,
+        0.19474,
+        0.240392
+      ],
+      "center_norm_xy": [
+        0.18197,
+        0.196595
+      ],
+      "area_px": 790,
+      "physical_features": {
+        "length_px": 88.0,
+        "width_px": 22.4,
+        "length_mm": 1.6101,
+        "width_mm": 0.4099,
+        "aspect_ratio": 3.9286,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.463,
+      "bbox_xyxy": [
+        731.64,
+        189.74,
+        778.95,
+        269.46
+      ],
+      "bbox_norm_xyxy": [
+        0.714491,
+        0.185293,
+        0.760697,
+        0.263148
+      ],
+      "center_norm_xy": [
+        0.737594,
+        0.22422
+      ],
+      "area_px": 974,
+      "physical_features": {
+        "length_px": 87.28,
+        "width_px": 39.53,
+        "length_mm": 1.597,
+        "width_mm": 0.7233,
+        "aspect_ratio": 2.2078,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9446,
+      "bbox_xyxy": [
+        263.78,
+        203.21,
+        313.1,
+        265.68
+      ],
+      "bbox_norm_xyxy": [
+        0.257594,
+        0.198445,
+        0.305764,
+        0.259452
+      ],
+      "center_norm_xy": [
+        0.281679,
+        0.228949
+      ],
+      "area_px": 789,
+      "physical_features": {
+        "length_px": 84.61,
+        "width_px": 34.21,
+        "length_mm": 1.548,
+        "width_mm": 0.626,
+        "aspect_ratio": 2.4731,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.2633,
+      "bbox_xyxy": [
+        646.97,
+        214.83,
+        716.77,
+        258.98
+      ],
+      "bbox_norm_xyxy": [
+        0.631809,
+        0.209797,
+        0.699974,
+        0.252913
+      ],
+      "center_norm_xy": [
+        0.665892,
+        0.231355
+      ],
+      "area_px": 711,
+      "physical_features": {
+        "length_px": 68.8,
+        "width_px": 41.6,
+        "length_mm": 1.2588,
+        "width_mm": 0.7612,
+        "aspect_ratio": 1.6538,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.7354,
+      "bbox_xyxy": [
+        148.1,
+        206.96,
+        194.59,
+        280.9
+      ],
+      "bbox_norm_xyxy": [
+        0.144634,
+        0.202106,
+        0.190032,
+        0.274312
+      ],
+      "center_norm_xy": [
+        0.167333,
+        0.238209
+      ],
+      "area_px": 765,
+      "physical_features": {
+        "length_px": 86.59,
+        "width_px": 31.66,
+        "length_mm": 1.5844,
+        "width_mm": 0.5793,
+        "aspect_ratio": 2.7352,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.7448,
+      "bbox_xyxy": [
+        390.45,
+        229.91,
+        470.19,
+        262.57
+      ],
+      "bbox_norm_xyxy": [
+        0.381297,
+        0.224521,
+        0.459165,
+        0.256415
+      ],
+      "center_norm_xy": [
+        0.420231,
+        0.240468
+      ],
+      "area_px": 955,
+      "physical_features": {
+        "length_px": 73.6,
+        "width_px": 33.6,
+        "length_mm": 1.3467,
+        "width_mm": 0.6148,
+        "aspect_ratio": 2.1905,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.6814,
+      "bbox_xyxy": [
+        514.5,
+        232.5,
+        537.95,
+        298.0
+      ],
+      "bbox_norm_xyxy": [
+        0.502439,
+        0.227048,
+        0.525344,
+        0.291012
+      ],
+      "center_norm_xy": [
+        0.513891,
+        0.25903
+      ],
+      "area_px": 578,
+      "physical_features": {
+        "length_px": 68.8,
+        "width_px": 22.4,
+        "length_mm": 1.2588,
+        "width_mm": 0.4099,
+        "aspect_ratio": 3.0714,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.3778,
+      "bbox_xyxy": [
+        449.29,
+        247.54,
+        482.25,
+        294.45
+      ],
+      "bbox_norm_xyxy": [
+        0.438764,
+        0.241742,
+        0.470944,
+        0.287549
+      ],
+      "center_norm_xy": [
+        0.454854,
+        0.264646
+      ],
+      "area_px": 526,
+      "physical_features": {
+        "length_px": 46.4,
+        "width_px": 36.8,
+        "length_mm": 0.849,
+        "width_mm": 0.6733,
+        "aspect_ratio": 1.2609,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.6171,
+      "bbox_xyxy": [
+        601.2,
+        278.58,
+        679.31,
+        323.37
+      ],
+      "bbox_norm_xyxy": [
+        0.587112,
+        0.27205,
+        0.663391,
+        0.315788
+      ],
+      "center_norm_xy": [
+        0.625251,
+        0.293919
+      ],
+      "area_px": 772,
+      "physical_features": {
+        "length_px": 88.51,
+        "width_px": 29.37,
+        "length_mm": 1.6195,
+        "width_mm": 0.5374,
+        "aspect_ratio": 3.0135,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.8379,
+      "bbox_xyxy": [
+        268.73,
+        263.67,
+        299.31,
+        342.46
+      ],
+      "bbox_norm_xyxy": [
+        0.262431,
+        0.257493,
+        0.292291,
+        0.334438
+      ],
+      "center_norm_xy": [
+        0.277361,
+        0.295966
+      ],
+      "area_px": 882,
+      "physical_features": {
+        "length_px": 81.6,
+        "width_px": 36.8,
+        "length_mm": 1.493,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.2174,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.5113,
+      "bbox_xyxy": [
+        349.23,
+        269.23,
+        378.16,
+        345.15
+      ],
+      "bbox_norm_xyxy": [
+        0.341041,
+        0.262924,
+        0.369297,
+        0.337063
+      ],
+      "center_norm_xy": [
+        0.355169,
+        0.299993
+      ],
+      "area_px": 811,
+      "physical_features": {
+        "length_px": 75.2,
+        "width_px": 28.8,
+        "length_mm": 1.3759,
+        "width_mm": 0.527,
+        "aspect_ratio": 2.6111,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.7074,
+      "bbox_xyxy": [
+        749.59,
+        288.61,
+        777.5,
+        351.18
+      ],
+      "bbox_norm_xyxy": [
+        0.732018,
+        0.281844,
+        0.759282,
+        0.342945
+      ],
+      "center_norm_xy": [
+        0.74565,
+        0.312395
+      ],
+      "area_px": 675,
+      "physical_features": {
+        "length_px": 62.4,
+        "width_px": 30.4,
+        "length_mm": 1.1417,
+        "width_mm": 0.5562,
+        "aspect_ratio": 2.0526,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.3718,
+      "bbox_xyxy": [
+        603.94,
+        292.69,
+        676.93,
+        357.21
+      ],
+      "bbox_norm_xyxy": [
+        0.589788,
+        0.28583,
+        0.661069,
+        0.348837
+      ],
+      "center_norm_xy": [
+        0.625428,
+        0.317333
+      ],
+      "area_px": 975,
+      "physical_features": {
+        "length_px": 80.55,
+        "width_px": 28.07,
+        "length_mm": 1.4738,
+        "width_mm": 0.5135,
+        "aspect_ratio": 2.87,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.5133,
+      "bbox_xyxy": [
+        94.96,
+        318.06,
+        139.04,
+        391.86
+      ],
+      "bbox_norm_xyxy": [
+        0.09273,
+        0.310608,
+        0.135777,
+        0.382678
+      ],
+      "center_norm_xy": [
+        0.114254,
+        0.346643
+      ],
+      "area_px": 882,
+      "physical_features": {
+        "length_px": 87.23,
+        "width_px": 32.88,
+        "length_mm": 1.596,
+        "width_mm": 0.6016,
+        "aspect_ratio": 2.6527,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.5969,
+      "bbox_xyxy": [
+        355.28,
+        350.27,
+        408.25,
+        397.09
+      ],
+      "bbox_norm_xyxy": [
+        0.346957,
+        0.34206,
+        0.398677,
+        0.387779
+      ],
+      "center_norm_xy": [
+        0.372817,
+        0.364919
+      ],
+      "area_px": 655,
+      "physical_features": {
+        "length_px": 71.71,
+        "width_px": 33.18,
+        "length_mm": 1.3121,
+        "width_mm": 0.6071,
+        "aspect_ratio": 2.1614,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.911,
+      "bbox_xyxy": [
+        698.8,
+        355.95,
+        770.65,
+        411.41
+      ],
+      "bbox_norm_xyxy": [
+        0.68242,
+        0.347611,
+        0.752589,
+        0.401772
+      ],
+      "center_norm_xy": [
+        0.717505,
+        0.374692
+      ],
+      "area_px": 750,
+      "physical_features": {
+        "length_px": 90.8,
+        "width_px": 32.63,
+        "length_mm": 1.6613,
+        "width_mm": 0.597,
+        "aspect_ratio": 2.7828,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.5223,
+      "bbox_xyxy": [
+        589.01,
+        353.27,
+        627.78,
+        437.85
+      ],
+      "bbox_norm_xyxy": [
+        0.575209,
+        0.344985,
+        0.613062,
+        0.427584
+      ],
+      "center_norm_xy": [
+        0.594136,
+        0.386285
+      ],
+      "area_px": 828,
+      "physical_features": {
+        "length_px": 91.58,
+        "width_px": 32.21,
+        "length_mm": 1.6757,
+        "width_mm": 0.5893,
+        "aspect_ratio": 2.8434,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9717,
+      "bbox_xyxy": [
+        230.33,
+        409.19,
+        308.78,
+        437.09
+      ],
+      "bbox_norm_xyxy": [
+        0.224928,
+        0.399599,
+        0.301541,
+        0.426845
+      ],
+      "center_norm_xy": [
+        0.263235,
+        0.413222
+      ],
+      "area_px": 841,
+      "physical_features": {
+        "length_px": 80.0,
+        "width_px": 30.4,
+        "length_mm": 1.4638,
+        "width_mm": 0.5562,
+        "aspect_ratio": 2.6316,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.9418,
+      "bbox_xyxy": [
+        124.08,
+        388.68,
+        155.96,
+        470.14
+      ],
+      "bbox_norm_xyxy": [
+        0.121172,
+        0.379574,
+        0.152306,
+        0.459122
+      ],
+      "center_norm_xy": [
+        0.136739,
+        0.419348
+      ],
+      "area_px": 1002,
+      "physical_features": {
+        "length_px": 88.0,
+        "width_px": 36.8,
+        "length_mm": 1.6101,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.3913,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.7261,
+      "bbox_xyxy": [
+        737.66,
+        417.97,
+        796.0,
+        481.39
+      ],
+      "bbox_norm_xyxy": [
+        0.72037,
+        0.408169,
+        0.777344,
+        0.470111
+      ],
+      "center_norm_xy": [
+        0.748857,
+        0.43914
+      ],
+      "area_px": 992,
+      "physical_features": {
+        "length_px": 62.4,
+        "width_px": 60.8,
+        "length_mm": 1.1417,
+        "width_mm": 1.1125,
+        "aspect_ratio": 1.0263,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.2781,
+      "bbox_xyxy": [
+        329.66,
+        430.24,
+        365.6,
+        471.13
+      ],
+      "bbox_norm_xyxy": [
+        0.321936,
+        0.420156,
+        0.357031,
+        0.460084
+      ],
+      "center_norm_xy": [
+        0.339484,
+        0.44012
+      ],
+      "area_px": 471,
+      "physical_features": {
+        "length_px": 43.2,
+        "width_px": 35.2,
+        "length_mm": 0.7904,
+        "width_mm": 0.6441,
+        "aspect_ratio": 1.2273,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.4063,
+      "bbox_xyxy": [
+        448.73,
+        431.21,
+        509.66,
+        504.92
+      ],
+      "bbox_norm_xyxy": [
+        0.43821,
+        0.421108,
+        0.497717,
+        0.493084
+      ],
+      "center_norm_xy": [
+        0.467964,
+        0.457096
+      ],
+      "area_px": 928,
+      "physical_features": {
+        "length_px": 91.7,
+        "width_px": 39.51,
+        "length_mm": 1.6779,
+        "width_mm": 0.7229,
+        "aspect_ratio": 2.3209,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.649,
+      "bbox_xyxy": [
+        537.5,
+        432.23,
+        563.74,
+        506.96
+      ],
+      "bbox_norm_xyxy": [
+        0.5249,
+        0.422104,
+        0.550532,
+        0.495081
+      ],
+      "center_norm_xy": [
+        0.537716,
+        0.458592
+      ],
+      "area_px": 737,
+      "physical_features": {
+        "length_px": 73.6,
+        "width_px": 28.8,
+        "length_mm": 1.3467,
+        "width_mm": 0.527,
+        "aspect_ratio": 2.5556,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.5592,
+      "bbox_xyxy": [
+        422.4,
+        440.14,
+        458.68,
+        504.87
+      ],
+      "bbox_norm_xyxy": [
+        0.412499,
+        0.429829,
+        0.447928,
+        0.493034
+      ],
+      "center_norm_xy": [
+        0.430213,
+        0.461431
+      ],
+      "area_px": 844,
+      "physical_features": {
+        "length_px": 68.8,
+        "width_px": 43.2,
+        "length_mm": 1.2588,
+        "width_mm": 0.7904,
+        "aspect_ratio": 1.5926,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.9167,
+      "bbox_xyxy": [
+        291.92,
+        460.16,
+        338.09,
+        493.72
+      ],
+      "bbox_norm_xyxy": [
+        0.28508,
+        0.449371,
+        0.330165,
+        0.482148
+      ],
+      "center_norm_xy": [
+        0.307622,
+        0.465759
+      ],
+      "area_px": 600,
+      "physical_features": {
+        "length_px": 49.6,
+        "width_px": 35.2,
+        "length_mm": 0.9075,
+        "width_mm": 0.6441,
+        "aspect_ratio": 1.4091,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.2629,
+      "bbox_xyxy": [
+        194.01,
+        479.48,
+        223.74,
+        511.78
+      ],
+      "bbox_norm_xyxy": [
+        0.189464,
+        0.468243,
+        0.218496,
+        0.499786
+      ],
+      "center_norm_xy": [
+        0.20398,
+        0.484015
+      ],
+      "area_px": 441,
+      "physical_features": {
+        "length_px": 36.8,
+        "width_px": 30.4,
+        "length_mm": 0.6733,
+        "width_mm": 0.5562,
+        "aspect_ratio": 1.2105,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9755,
+      "bbox_xyxy": [
+        67.86,
+        479.27,
+        170.74,
+        529.73
+      ],
+      "bbox_norm_xyxy": [
+        0.06627,
+        0.46804,
+        0.166735,
+        0.517311
+      ],
+      "center_norm_xy": [
+        0.116503,
+        0.492675
+      ],
+      "area_px": 975,
+      "physical_features": {
+        "length_px": 117.99,
+        "width_px": 31.23,
+        "length_mm": 2.1589,
+        "width_mm": 0.5714,
+        "aspect_ratio": 3.7782,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.7795,
+      "bbox_xyxy": [
+        659.17,
+        476.4,
+        700.56,
+        545.15
+      ],
+      "bbox_norm_xyxy": [
+        0.643723,
+        0.465235,
+        0.68414,
+        0.532378
+      ],
+      "center_norm_xy": [
+        0.663932,
+        0.498806
+      ],
+      "area_px": 718,
+      "physical_features": {
+        "length_px": 75.2,
+        "width_px": 32.88,
+        "length_mm": 1.3759,
+        "width_mm": 0.6016,
+        "aspect_ratio": 2.2868,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.3878,
+      "bbox_xyxy": [
+        624.08,
+        517.59,
+        671.21,
+        546.43
+      ],
+      "bbox_norm_xyxy": [
+        0.609453,
+        0.505457,
+        0.65548,
+        0.533627
+      ],
+      "center_norm_xy": [
+        0.632467,
+        0.519542
+      ],
+      "area_px": 448,
+      "physical_features": {
+        "length_px": 40.0,
+        "width_px": 30.4,
+        "length_mm": 0.7319,
+        "width_mm": 0.5562,
+        "aspect_ratio": 1.3158,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.5533,
+      "bbox_xyxy": [
+        463.61,
+        511.56,
+        521.88,
+        560.9
+      ],
+      "bbox_norm_xyxy": [
+        0.452745,
+        0.499575,
+        0.509652,
+        0.547749
+      ],
+      "center_norm_xy": [
+        0.481198,
+        0.523662
+      ],
+      "area_px": 832,
+      "physical_features": {
+        "length_px": 83.8,
+        "width_px": 33.88,
+        "length_mm": 1.5334,
+        "width_mm": 0.6199,
+        "aspect_ratio": 2.4736,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.673,
+      "bbox_xyxy": [
+        463.67,
+        511.96,
+        521.84,
+        561.01
+      ],
+      "bbox_norm_xyxy": [
+        0.452806,
+        0.499962,
+        0.509605,
+        0.547864
+      ],
+      "center_norm_xy": [
+        0.481206,
+        0.523913
+      ],
+      "area_px": 810,
+      "physical_features": {
+        "length_px": 79.38,
+        "width_px": 33.88,
+        "length_mm": 1.4524,
+        "width_mm": 0.6199,
+        "aspect_ratio": 2.3427,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.3858,
+      "bbox_xyxy": [
+        149.63,
+        517.43,
+        200.75,
+        570.95
+      ],
+      "bbox_norm_xyxy": [
+        0.146122,
+        0.505306,
+        0.196049,
+        0.557572
+      ],
+      "center_norm_xy": [
+        0.171086,
+        0.531439
+      ],
+      "area_px": 627,
+      "physical_features": {
+        "length_px": 71.07,
+        "width_px": 28.51,
+        "length_mm": 1.3004,
+        "width_mm": 0.5217,
+        "aspect_ratio": 2.4928,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.763,
+      "bbox_xyxy": [
+        76.17,
+        534.47,
+        124.46,
+        593.7
+      ],
+      "bbox_norm_xyxy": [
+        0.074388,
+        0.521939,
+        0.121545,
+        0.579787
+      ],
+      "center_norm_xy": [
+        0.097967,
+        0.550863
+      ],
+      "area_px": 792,
+      "physical_features": {
+        "length_px": 83.52,
+        "width_px": 33.28,
+        "length_mm": 1.5282,
+        "width_mm": 0.6089,
+        "aspect_ratio": 2.5096,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.6343,
+      "bbox_xyxy": [
+        271.8,
+        527.96,
+        317.09,
+        600.92
+      ],
+      "bbox_norm_xyxy": [
+        0.265426,
+        0.515588,
+        0.309654,
+        0.586837
+      ],
+      "center_norm_xy": [
+        0.28754,
+        0.551213
+      ],
+      "area_px": 765,
+      "physical_features": {
+        "length_px": 90.07,
+        "width_px": 29.82,
+        "length_mm": 1.6481,
+        "width_mm": 0.5456,
+        "aspect_ratio": 3.0206,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.4128,
+      "bbox_xyxy": [
+        579.39,
+        550.76,
+        614.28,
+        624.05
+      ],
+      "bbox_norm_xyxy": [
+        0.565815,
+        0.537852,
+        0.599887,
+        0.609419
+      ],
+      "center_norm_xy": [
+        0.582851,
+        0.573635
+      ],
+      "area_px": 833,
+      "physical_features": {
+        "length_px": 75.2,
+        "width_px": 36.8,
+        "length_mm": 1.3759,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.0435,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.5781,
+      "bbox_xyxy": [
+        773.55,
+        580.58,
+        824.84,
+        607.79
+      ],
+      "bbox_norm_xyxy": [
+        0.755415,
+        0.566978,
+        0.805508,
+        0.593542
+      ],
+      "center_norm_xy": [
+        0.780462,
+        0.58026
+      ],
+      "area_px": 640,
+      "physical_features": {
+        "length_px": 56.0,
+        "width_px": 30.4,
+        "length_mm": 1.0246,
+        "width_mm": 0.5562,
+        "aspect_ratio": 1.8421,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.3767,
+      "bbox_xyxy": [
+        326.15,
+        588.55,
+        384.65,
+        616.92
+      ],
+      "bbox_norm_xyxy": [
+        0.318506,
+        0.574752,
+        0.37564,
+        0.602458
+      ],
+      "center_norm_xy": [
+        0.347073,
+        0.588605
+      ],
+      "area_px": 698,
+      "physical_features": {
+        "length_px": 60.8,
+        "width_px": 36.8,
+        "length_mm": 1.1125,
+        "width_mm": 0.6733,
+        "aspect_ratio": 1.6522,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.323,
+      "bbox_xyxy": [
+        400.12,
+        568.77,
+        444.5,
+        648.95
+      ],
+      "bbox_norm_xyxy": [
+        0.390743,
+        0.555438,
+        0.434078,
+        0.633745
+      ],
+      "center_norm_xy": [
+        0.412411,
+        0.594591
+      ],
+      "area_px": 983,
+      "physical_features": {
+        "length_px": 88.24,
+        "width_px": 35.56,
+        "length_mm": 1.6144,
+        "width_mm": 0.6506,
+        "aspect_ratio": 2.4815,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.6338,
+      "bbox_xyxy": [
+        751.91,
+        618.9,
+        826.95,
+        683.09
+      ],
+      "bbox_norm_xyxy": [
+        0.734286,
+        0.604398,
+        0.807565,
+        0.667075
+      ],
+      "center_norm_xy": [
+        0.770926,
+        0.635736
+      ],
+      "area_px": 1234,
+      "physical_features": {
+        "length_px": 74.67,
+        "width_px": 53.17,
+        "length_mm": 1.3662,
+        "width_mm": 0.9729,
+        "aspect_ratio": 1.4043,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.2731,
+      "bbox_xyxy": [
+        559.83,
+        623.05,
+        599.35,
+        696.6
+      ],
+      "bbox_norm_xyxy": [
+        0.546709,
+        0.608443,
+        0.585306,
+        0.680278
+      ],
+      "center_norm_xy": [
+        0.566007,
+        0.64436
+      ],
+      "area_px": 873,
+      "physical_features": {
+        "length_px": 83.69,
+        "width_px": 38.0,
+        "length_mm": 1.5312,
+        "width_mm": 0.6954,
+        "aspect_ratio": 2.2021,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.9202,
+      "bbox_xyxy": [
+        198.41,
+        641.37,
+        242.34,
+        684.59
+      ],
+      "bbox_norm_xyxy": [
+        0.193762,
+        0.62634,
+        0.236665,
+        0.668542
+      ],
+      "center_norm_xy": [
+        0.215213,
+        0.647441
+      ],
+      "area_px": 726,
+      "physical_features": {
+        "length_px": 43.2,
+        "width_px": 43.2,
+        "length_mm": 0.7904,
+        "width_mm": 0.7904,
+        "aspect_ratio": 1.0,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9439,
+      "bbox_xyxy": [
+        473.7,
+        683.29,
+        571.77,
+        711.99
+      ],
+      "bbox_norm_xyxy": [
+        0.462599,
+        0.667279,
+        0.558371,
+        0.695307
+      ],
+      "center_norm_xy": [
+        0.510485,
+        0.681293
+      ],
+      "area_px": 688,
+      "physical_features": {
+        "length_px": 96.24,
+        "width_px": 25.61,
+        "length_mm": 1.7609,
+        "width_mm": 0.4686,
+        "aspect_ratio": 3.7576,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "broken",
+      "confidence": 0.45,
+      "bbox_xyxy": [
+        343.63,
+        684.45,
+        362.56,
+        739.1
+      ],
+      "bbox_norm_xyxy": [
+        0.335577,
+        0.668407,
+        0.354067,
+        0.72178
+      ],
+      "center_norm_xy": [
+        0.344822,
+        0.695093
+      ],
+      "area_px": 521,
+      "physical_features": {
+        "length_px": 62.4,
+        "width_px": 24.0,
+        "length_mm": 1.1417,
+        "width_mm": 0.4391,
+        "aspect_ratio": 2.6,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.3929,
+      "bbox_xyxy": [
+        680.22,
+        695.19,
+        737.89,
+        731.64
+      ],
+      "bbox_norm_xyxy": [
+        0.664282,
+        0.678892,
+        0.720595,
+        0.71449
+      ],
+      "center_norm_xy": [
+        0.692439,
+        0.696691
+      ],
+      "area_px": 578,
+      "physical_features": {
+        "length_px": 58.99,
+        "width_px": 33.26,
+        "length_mm": 1.0794,
+        "width_mm": 0.6086,
+        "aspect_ratio": 1.7736,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.9113,
+      "bbox_xyxy": [
+        759.13,
+        706.97,
+        863.8,
+        741.48
+      ],
+      "bbox_norm_xyxy": [
+        0.741334,
+        0.690397,
+        0.843552,
+        0.724099
+      ],
+      "center_norm_xy": [
+        0.792443,
+        0.707248
+      ],
+      "area_px": 1035,
+      "physical_features": {
+        "length_px": 107.2,
+        "width_px": 36.8,
+        "length_mm": 1.9614,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.913,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.7758,
+      "bbox_xyxy": [
+        216.76,
+        731.79,
+        292.47,
+        761.98
+      ],
+      "bbox_norm_xyxy": [
+        0.211679,
+        0.714636,
+        0.285612,
+        0.744116
+      ],
+      "center_norm_xy": [
+        0.248645,
+        0.729376
+      ],
+      "area_px": 832,
+      "physical_features": {
+        "length_px": 81.6,
+        "width_px": 36.8,
+        "length_mm": 1.493,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.2174,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "foreign",
+      "confidence": 0.9467,
+      "bbox_xyxy": [
+        659.43,
+        720.12,
+        713.51,
+        794.68
+      ],
+      "bbox_norm_xyxy": [
+        0.643976,
+        0.70324,
+        0.696784,
+        0.776055
+      ],
+      "center_norm_xy": [
+        0.67038,
+        0.739647
+      ],
+      "area_px": 1203,
+      "physical_features": {
+        "length_px": 73.6,
+        "width_px": 56.0,
+        "length_mm": 1.3467,
+        "width_mm": 1.0246,
+        "aspect_ratio": 1.3143,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.7207,
+      "bbox_xyxy": [
+        390.71,
+        745.51,
+        467.8,
+        773.71
+      ],
+      "bbox_norm_xyxy": [
+        0.381557,
+        0.728039,
+        0.456833,
+        0.755574
+      ],
+      "center_norm_xy": [
+        0.419195,
+        0.741806
+      ],
+      "area_px": 812,
+      "physical_features": {
+        "length_px": 72.0,
+        "width_px": 30.4,
+        "length_mm": 1.3174,
+        "width_mm": 0.5562,
+        "aspect_ratio": 2.3684,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "paddy",
+      "confidence": 0.3182,
+      "bbox_xyxy": [
+        216.48,
+        742.74,
+        285.54,
+        789.79
+      ],
+      "bbox_norm_xyxy": [
+        0.211404,
+        0.725328,
+        0.278844,
+        0.771284
+      ],
+      "center_norm_xy": [
+        0.245124,
+        0.748306
+      ],
+      "area_px": 1025,
+      "physical_features": {
+        "length_px": 75.2,
+        "width_px": 49.6,
+        "length_mm": 1.3759,
+        "width_mm": 0.9075,
+        "aspect_ratio": 1.5161,
+        "size_class": "short",
+        "included_in_physical_feature_summary": false,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.2687,
+      "bbox_xyxy": [
+        324.15,
+        776.8,
+        398.44,
+        808.78
+      ],
+      "bbox_norm_xyxy": [
+        0.316549,
+        0.758594,
+        0.389097,
+        0.789819
+      ],
+      "center_norm_xy": [
+        0.352823,
+        0.774207
+      ],
+      "area_px": 894,
+      "physical_features": {
+        "length_px": 81.6,
+        "width_px": 36.8,
+        "length_mm": 1.493,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.2174,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.8835,
+      "bbox_xyxy": [
+        463.62,
+        800.39,
+        512.3,
+        837.02
+      ],
+      "bbox_norm_xyxy": [
+        0.452752,
+        0.781632,
+        0.500297,
+        0.8174
+      ],
+      "center_norm_xy": [
+        0.476524,
+        0.799516
+      ],
+      "area_px": 527,
+      "physical_features": {
+        "length_px": 48.0,
+        "width_px": 36.8,
+        "length_mm": 0.8783,
+        "width_mm": 0.6733,
+        "aspect_ratio": 1.3043,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.3407,
+      "bbox_xyxy": [
+        303.21,
+        803.83,
+        390.53,
+        836.93
+      ],
+      "bbox_norm_xyxy": [
+        0.296104,
+        0.784988,
+        0.381372,
+        0.817311
+      ],
+      "center_norm_xy": [
+        0.338738,
+        0.80115
+      ],
+      "area_px": 893,
+      "physical_features": {
+        "length_px": 86.4,
+        "width_px": 36.8,
+        "length_mm": 1.5809,
+        "width_mm": 0.6733,
+        "aspect_ratio": 2.3478,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "whole",
+      "confidence": 0.3249,
+      "bbox_xyxy": [
+        597.67,
+        839.1,
+        652.04,
+        905.44
+      ],
+      "bbox_norm_xyxy": [
+        0.583661,
+        0.819429,
+        0.636759,
+        0.884222
+      ],
+      "center_norm_xy": [
+        0.61021,
+        0.851826
+      ],
+      "area_px": 789,
+      "physical_features": {
+        "length_px": 88.55,
+        "width_px": 33.33,
+        "length_mm": 1.6202,
+        "width_mm": 0.6099,
+        "aspect_ratio": 2.6565,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": true
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.6967,
+      "bbox_xyxy": [
+        598.1,
+        839.09,
+        652.11,
+        906.16
+      ],
+      "bbox_norm_xyxy": [
+        0.584078,
+        0.819422,
+        0.636825,
+        0.884918
+      ],
+      "center_norm_xy": [
+        0.610452,
+        0.85217
+      ],
+      "area_px": 789,
+      "physical_features": {
+        "length_px": 88.55,
+        "width_px": 33.33,
+        "length_mm": 1.6202,
+        "width_mm": 0.6099,
+        "aspect_ratio": 2.6565,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.7773,
+      "bbox_xyxy": [
+        503.79,
+        867.39,
+        556.12,
+        923.94
+      ],
+      "bbox_norm_xyxy": [
+        0.49198,
+        0.847063,
+        0.543088,
+        0.90229
+      ],
+      "center_norm_xy": [
+        0.517534,
+        0.874676
+      ],
+      "area_px": 755,
+      "physical_features": {
+        "length_px": 83.84,
+        "width_px": 32.66,
+        "length_mm": 1.534,
+        "width_mm": 0.5976,
+        "aspect_ratio": 2.5668,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "normal",
+      "label": "discolored",
+      "confidence": 0.656,
+      "bbox_xyxy": [
+        557.23,
+        859.42,
+        587.9,
+        940.53
+      ],
+      "bbox_norm_xyxy": [
+        0.544169,
+        0.839273,
+        0.574118,
+        0.918482
+      ],
+      "center_norm_xy": [
+        0.559143,
+        0.878877
+      ],
+      "area_px": 837,
+      "physical_features": {
+        "length_px": 81.6,
+        "width_px": 30.4,
+        "length_mm": 1.493,
+        "width_mm": 0.5562,
+        "aspect_ratio": 2.6842,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    },
+    {
+      "source": "ir",
+      "label": "chalky",
+      "confidence": 0.7155,
+      "bbox_xyxy": [
+        384.24,
+        930.91,
+        463.26,
+        966.92
+      ],
+      "bbox_norm_xyxy": [
+        0.375235,
+        0.909088,
+        0.452401,
+        0.944255
+      ],
+      "center_norm_xy": [
+        0.413818,
+        0.926671
+      ],
+      "area_px": 817,
+      "physical_features": {
+        "length_px": 85.53,
+        "width_px": 33.04,
+        "length_mm": 1.565,
+        "width_mm": 0.6045,
+        "aspect_ratio": 2.589,
+        "size_class": "short",
+        "included_in_physical_feature_summary": true,
+        "included_in_pns_size_classification": false
+      }
+    }
+  ]
+}
