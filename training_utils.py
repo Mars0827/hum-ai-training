@@ -294,7 +294,8 @@ def materialize_yolo_class_mapping(
 
     if output_dataset_dir.exists() and overwrite:
         marker_path = output_dataset_dir / ".generated_class_mapping.json"
-        if marker_path.exists():
+        expected_generated_name = f"{source_dataset_dir.name}_clear"
+        if marker_path.exists() or output_dataset_dir.name == expected_generated_name:
             shutil.rmtree(output_dataset_dir)
         else:
             raise FileExistsError(
