@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment files
+.env
+.env.*
+
+# Generated YOLO/Ultralytics outputs
+runs/
+runs_segment/
+artifacts/
+datasets_prepared/
+
+# Generated inference/report outputs
+preview/
+outputs/
+
+# Model exports and training weights
+*.pt
+*.onnx
+*.engine
+*.tflite
+*.torchscript
+*.mlpackage/
+
+# Large generated archives
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Keep source docs/notebooks tracked; generated data and binary artifacts stay out of git.

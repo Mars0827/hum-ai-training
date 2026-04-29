@@ -224,10 +224,12 @@ def ensure_dataset_yaml(
     if yaml_path.exists():
         existing_payload = _load_yaml(yaml_path)
 
+    val_split = "val" if (dataset_dir / "val").exists() or not (dataset_dir / "valid").exists() else "valid"
+
     payload = {
         "path": str(dataset_dir.resolve()),
         "train": "train/images",
-        "val": "valid/images",
+        "val": f"{val_split}/images",
         "test": "test/images",
         "nc": len(class_names),
         "names": class_names,
@@ -307,7 +309,16 @@ def validate_yolo_segmentation_dataset(
     warnings: list[str] = []
     observed_class_ids: set[int] = set()
 
-    for split in ("train", "valid", "test"):
+    split_names = ["train"]
+    if (dataset_dir / "val").exists():
+        split_names.append("val")
+    elif (dataset_dir / "valid").exists():
+        split_names.append("valid")
+    else:
+        split_names.append("val")
+    split_names.append("test")
+
+    for split in split_names:
         split_dir = dataset_dir / split
         summary = count_images_and_labels(split_dir)
         split_summaries[split] = summary
