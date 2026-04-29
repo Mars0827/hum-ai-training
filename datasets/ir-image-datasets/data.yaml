@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 4
+names: ['broken', 'chalky', 'foreign ', 'whole']
+
+roboflow:
+  workspace: humai-o2qtg
+  project: humai-o2qtg
+  version: dataset
+  license: Private
+  url: https://app.roboflow.com/humai-o2qtg/humai-o2qtg/dataset
